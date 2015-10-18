@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-  include ApplicationHelper
+  include ImagesHelper
   def index    
     @images = create_image_array
   end
