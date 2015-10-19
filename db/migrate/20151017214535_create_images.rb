@@ -10,6 +10,7 @@ class CreateImages < ActiveRecord::Migration
       t.string :exposure
       t.string :aperture
       t.string :iso_speed
+      t.boolean :all_data_available?
       
       t.timestamps null: false
     end

@@ -23,8 +23,9 @@ ActiveRecord::Schema.define(version: 20151017214535) do
     t.string   "exposure"
     t.string   "aperture"
     t.string   "iso_speed"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.boolean  "all_data_available?"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "users", force: :cascade do |t|
