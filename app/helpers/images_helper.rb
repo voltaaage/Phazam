@@ -1,8 +1,8 @@
 module ImagesHelper
   def create_image_array
-    # @id = "61558207@N04"
-    # @id = "55775945@N04"
-    @id = "102176013@N05"
+    # @id = '61558207@N04'
+    # @id = '55775945@N04'
+    @id = '102176013@N05'
     api_key = ENV['FLICKR_KEY']
     page_max = 12
     page_count = 0
