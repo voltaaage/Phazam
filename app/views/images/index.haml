@@ -1,0 +1,5 @@
+%h3 Images
+%p Photos from Flickr
+%ul.rig.columns-4
+  - @images.each do |image|
+    = render 'image', image: image
