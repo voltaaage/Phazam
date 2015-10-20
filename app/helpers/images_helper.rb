@@ -1,8 +1,10 @@
 module ImagesHelper
   def create_image_array
-    # @id = '61558207@N04'
-    @id = '55775945@N04'
-    # @id = '102176013@N05'
+    # Hardcoded flickr IDs for testing
+    # @id = '55775945@N04' # mine
+    @id = '61558207@N04' # Brad
+    # @id = '102176013@N05' # Peter
+
     api_key = ENV['FLICKR_KEY']
     page_max = 12
     page_count = 0
@@ -11,10 +13,8 @@ module ImagesHelper
     flickr.people.getPhotos(user_id: @id, api_key: api_key, per_page: page_max).each do |p|
       # Determine if image has been retrieved previously
       @image = Image.find{ |x| x.photo_id == p.id}
-      if @image == nil || @image_id.all_data_available?
-        @image = Image.new
-        get_and_update_photo_info(p.id,api_key,@image)   
-      end
+      @image = Image.new if @image == nil
+      get_and_update_photo_info(p.id,api_key,@image) if !@image.all_data_available?
       @images << @image
     end
 
@@ -32,7 +32,7 @@ module ImagesHelper
     original_url = FlickRaw.url_o(info)
 
     # Exif info
-    exif = flickr.photos.getExif(api_key: api_key, photo_id: flickr_photo_id).exif
+    exif = flickr.photos.getExif(api_key: api_key, photo_id: photo_id).exif
     focal_length = parse_exif_data(exif,"Focal Length","clean")
     exposure = parse_exif_data(exif,"Exposure","clean")
     aperture = parse_exif_data(exif,"Aperture","clean")
