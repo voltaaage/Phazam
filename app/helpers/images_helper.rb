@@ -41,13 +41,12 @@ module ImagesHelper
     title = info.title
     square_url = FlickRaw.url_s(info)
     medium_url = FlickRaw.url_m(info)
-    original_url = #FlickRaw.url_o(info)
+    original_url = "" #FlickRaw.url_o(info)
 
     # Exif info
     begin
       exif = flickr.photos.getExif(api_key: api_key, photo_id: photo_id).exif
     rescue
-      exif = nil
       return nil
     end
 
