@@ -5,9 +5,6 @@ class ChallengeController < ApplicationController
   def new
   end
 
-  def update
-  end
-
-  def destroy
+  def create
   end
 end

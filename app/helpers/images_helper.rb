@@ -1,38 +1,56 @@
 module ImagesHelper
-  def create_image_array
-    # Hardcoded flickr IDs for testing
-    # @id = '55775945@N04' # mine
-    @id = '61558207@N04' # Brad
-    # @id = '102176013@N05' # Peter
-
-    api_key = ENV['FLICKR_KEY']
-    page_max = 12
-    page_count = 0
-    @images = []
-    
-    flickr.people.getPhotos(user_id: @id, api_key: api_key, per_page: page_max).each do |p|
-      # Determine if image has been retrieved previously
-      @image = Image.find{ |x| x.photo_id == p.id}
-      @image = Image.new if @image == nil
-      get_and_update_photo_info(p.id,api_key,@image) if !@image.all_data_available?
-      @images << @image
+  def create_image_array_from_interesting_photos(api_key,per_page)
+    images = []
+    flickr.interestingness.getList(api_key: api_key, per_page: per_page).each do |photo|
+      image = process_image(api_key,photo)
+      images << image if image.all_data_available?
     end
+    images
+  end
 
-    @images
+  def create_image_array_from_recently_uploaded(api_key,per_page)
+    images = []
+    flickr.photos.getRecent(api_key: api_key, per_page: per_page).each do |photo|
+      image = process_image(api_key,photo)
+      images << image if image.all_data_available?
+    end
+    images
+  end
+
+  def create_image_array_from_user(flicker_user_id,api_key,per_page)
+    images = []
+    flickr.people.getPhotos(user_id: flicker_user_id, api_key: api_key, per_page: per_page).each do |photo|
+      image = process_image(api_key,photo)
+      images << image if image.all_data_available?
+    end
+    images
   end
 
   private 
 
-  def get_and_update_photo_info(photo_id,api_key,image)
+  def process_image(api_key,photo)
+    image = Image.find{ |x| x.photo_id == photo.id}
+    image = Image.new if image == nil
+    get_and_update_photo_info(api_key,photo.id,image) if !image.all_data_available?
+    image
+  end
+
+  def get_and_update_photo_info(api_key,photo_id,image)
     # General info
     info = flickr.photos.getInfo(photo_id: photo_id)
     title = info.title
     square_url = FlickRaw.url_s(info)
     medium_url = FlickRaw.url_m(info)
-    original_url = FlickRaw.url_o(info)
+    original_url = #FlickRaw.url_o(info)
 
     # Exif info
-    exif = flickr.photos.getExif(api_key: api_key, photo_id: photo_id).exif
+    begin
+      exif = flickr.photos.getExif(api_key: api_key, photo_id: photo_id).exif
+    rescue
+      exif = nil
+      return nil
+    end
+
     focal_length = parse_exif_data(exif,"Focal Length","clean")
     exposure = parse_exif_data(exif,"Exposure","clean")
     aperture = parse_exif_data(exif,"Aperture","clean")

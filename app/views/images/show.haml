@@ -1,0 +1,21 @@
+%h3= @image.title
+= link_to(image_tag(@image.medium_url),@image.original_url)
+%h3= @image.title
+%p 
+  %b Image ID: 
+  = @image.photo_id
+%p 
+  %b Focal Length:
+  = @image.focal_length
+%p 
+  %b Exposure:
+  = @image.exposure
+%p 
+  %b Aperture:
+  = @image.aperture
+%p 
+  %b ISO Speed:
+  = @image.iso_speed
+%p 
+  %b All_data_available:
+  = @image.all_data_available?
