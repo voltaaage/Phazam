@@ -41,7 +41,7 @@ module ImagesHelper
     title = info.title
     square_url = FlickRaw.url_s(info)
     medium_url = FlickRaw.url_m(info)
-    original_url = "" #FlickRaw.url_o(info)
+    large_url = FlickRaw.url_b(info)
 
     # Exif info
     begin
@@ -55,7 +55,7 @@ module ImagesHelper
     aperture = parse_exif_data(exif,"Aperture","clean")
     iso_speed = parse_exif_data(exif,"ISO Speed","raw")
 
-    image.update_info(photo_id,title,square_url,medium_url,original_url,focal_length,exposure,aperture,iso_speed)
+    image.update_info(photo_id,title,square_url,medium_url,large_url,focal_length,exposure,aperture,iso_speed)
   end
 
   def parse_exif_data(exif,label,content)
