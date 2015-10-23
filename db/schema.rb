@@ -11,14 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023035914) do
+ActiveRecord::Schema.define(version: 20151023053650) do
 
   create_table "challenges", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "difficulty"
+    t.string   "focal_length_accuracy"
+    t.string   "exposure_accuracy"
+    t.string   "aperture_accuracy"
+    t.string   "iso_speed_accuracy"
+    t.string   "overall_score"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.integer  "user_id"
+    t.integer  "image_id"
   end
 
+  add_index "challenges", ["image_id"], name: "index_challenges_on_image_id"
   add_index "challenges", ["user_id"], name: "index_challenges_on_user_id"
 
   create_table "images", force: :cascade do |t|
@@ -34,10 +42,7 @@ ActiveRecord::Schema.define(version: 20151023035914) do
     t.boolean  "all_data_available?", default: false
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "challenge_id"
   end
-
-  add_index "images", ["challenge_id"], name: "index_images_on_challenge_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

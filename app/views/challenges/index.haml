@@ -1,2 +1,6 @@
 %h3 Welcome to the Phazam Challenge
 %p Here is a list of your recent challenges and how you fared
+
+%ul
+  - @challenges.each do |p|
+    = render partial: "challenge", challenge: challenge
