@@ -5,7 +5,7 @@ class ImagesController < ApplicationController
     # flicker_user_id = '55775945@N04' # Mine
     # flicker_user_id = '61558207@N04' # Brad
     # flicker_user_id = '102176013@N05' # Peter
-    per_page = 12
+    per_page = 48
     
     # @images = create_image_array_from_user(flicker_user_id,per_page)
     # @images = create_image_array_from_recently_uploaded(per_page)

@@ -7,8 +7,8 @@ class ChallengesController < ApplicationController
   def new
     @challenge = Challenge.new
     per_page = 12
-    @images = create_image_array_from_interesting_photos(per_page)
-    @image = @images.first
+    images = Images.all
+    @image = @images.sample
   end
 
   def create
