@@ -1,6 +1,9 @@
 %h3 Welcome to the Phazam Challenge
+%p Start a new challenge by clicking the button below
+= link_to "Start Challenge", new_challenge_path, class: 'btn btn-primary'
+%br
+%br
 %p Here is a list of your recent challenges and how you fared
-
-%ul
-  - @challenges.each do |p|
-    = render partial: "challenge", challenge: challenge
+%ul.rig.columns-3
+  - @challenges.each do |challenge|
+    = render "images/image", {challenge: challenge, image: challenge} #image will be challenge.image_id when model is complete
