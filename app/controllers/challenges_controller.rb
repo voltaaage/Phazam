@@ -9,6 +9,10 @@ class ChallengesController < ApplicationController
     per_page = 12
     images = Images.all
     @image = @images.sample
+    @focal_length_options = focal_length_options(@image,4)
+    @exposure_options = exposure_options(@image,4)
+    @aperture_options = aperture_options(@image,4)
+    @iso_speed_options = iso_speed_options(@image,4)
   end
 
   def create
