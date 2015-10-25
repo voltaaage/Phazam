@@ -1,11 +1,40 @@
-%h4= @image.title
-%b Image ID: 
-%br
-%b Focal Length:
-%br
-%b Exposure:
-%br
-%b Aperture:
-%br
-%b ISO Speed:
-%br
+%h4= image.title
+= form_for challenge do |f|
+  .row
+    .col-md-2
+      Focal Length:
+    .col-md-6
+      .form-group
+        %input{type: "button", id: "focal_length", name: "Focal Length", value:image.focal_length}
+        %input{type: "button", id: "focal_length", name: "Focal Length", value:image.focal_length}
+        %input{type: "button", id: "focal_length", name: "Focal Length", value:image.focal_length}
+        %input{type: "button", id: "focal_length", name: "Focal Length", value:image.focal_length}
+  .row
+    .col-md-2
+      Exposure:
+    .col-md-6
+      .form-group
+        %input{type: "button", id: "exposure", name: "Exposure", value:image.exposure}
+        %input{type: "button", id: "exposure", name: "Exposure", value:image.exposure}
+        %input{type: "button", id: "exposure", name: "Exposure", value:image.exposure}
+        %input{type: "button", id: "exposure", name: "Exposure", value:image.exposure}
+  .row
+    .col-md-2
+      %b Aperture:
+    .col-md-6
+      .form-group
+        %input{type: "button", id: "aperture", name: "Aperture", value:image.aperture}
+        %input{type: "button", id: "aperture", name: "Aperture", value:image.aperture}
+        %input{type: "button", id: "aperture", name: "Aperture", value:image.aperture}
+        %input{type: "button", id: "aperture", name: "Aperture", value:image.aperture}
+  .row
+    .col-md-2
+      %b ISO Speed
+    .col-md-6
+      .form-group
+        %input{type: "button", id: "iso_speed", name: "ISO Speed", value:image.iso_speed}
+        %input{type: "button", id: "iso_speed", name: "ISO Speed", value:image.iso_speed}
+        %input{type: "button", id: "iso_speed", name: "ISO Speed", value:image.iso_speed}
+        %input{type: "button", id: "iso_speed", name: "ISO Speed", value:image.iso_speed}
+  .row
+    %button{type:"submit",class:"btn btn-primary"}Submit
