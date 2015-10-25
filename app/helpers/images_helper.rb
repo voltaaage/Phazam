@@ -1,26 +1,26 @@
 module ImagesHelper
-  def create_image_array_from_interesting_photos(api_key,per_page)
+  def create_image_array_from_interesting_photos(per_page)
     images = []
-    flickr.interestingness.getList(api_key: api_key, per_page: per_page).each do |photo|
-      image = process_image(api_key,photo)
+    flickr.interestingness.getList(api_key: ENV['FLICKR_KEY'], per_page: per_page).each do |photo|
+      image = process_image(ENV['FLICKR_KEY'],photo)
       images << image if image.all_data_available?
     end
     images
   end
 
-  def create_image_array_from_recently_uploaded(api_key,per_page)
+  def create_image_array_from_recently_uploaded(per_page)
     images = []
-    flickr.photos.getRecent(api_key: api_key, per_page: per_page).each do |photo|
-      image = process_image(api_key,photo)
+    flickr.photos.getRecent(api_key: ENV['FLICKR_KEY'], per_page: per_page).each do |photo|
+      image = process_image(ENV['FLICKR_KEY'],photo)
       images << image if image.all_data_available?
     end
     images
   end
 
-  def create_image_array_from_user(flicker_user_id,api_key,per_page)
+  def create_image_array_from_user(flicker_user_id,per_page)
     images = []
-    flickr.people.getPhotos(user_id: flicker_user_id, api_key: api_key, per_page: per_page).each do |photo|
-      image = process_image(api_key,photo)
+    flickr.people.getPhotos(user_id: flicker_user_id, api_key: ENV['FLICKR_KEY'], per_page: per_page).each do |photo|
+      image = process_image(ENV['FLICKR_KEY'],photo)
       images << image if image.all_data_available?
     end
     images
