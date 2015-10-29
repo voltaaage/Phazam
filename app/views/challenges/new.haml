@@ -1,3 +1,3 @@
 %h3 Welcome to the Phazam Challenge
 = link_to(image_tag(@image.medium_url),@image.large_url)
-= render 'challenge_input', {challenge: Challenge.new, image: @image}
+= render partial: 'challenge_input', locals: {challenge: @challenge,image: @image,  option_value: @exif_options}

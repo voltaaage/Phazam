@@ -20,4 +20,16 @@
           = link_to "Sign In", new_user_session_path 
           or
           = link_to "Sign Up", new_user_registration_path
+    - if flash[:notice]
+      .alert.alert-success
+        %button{type:"button",class:"close",dismiss:"alert"} &times;
+        = flash[:notice]
+    - elsif flash[:error]
+      .alert.alert-danger
+        %button{type:"button",class:"close",dismiss:"alert"} &times;
+        = flash[:error]
+    - elsif flash[:alert]
+      .alert.alert-warning
+        %button{type:"button",class:"close",dismiss:"alert"} &times;
+        = flash[:alert]
     = yield
