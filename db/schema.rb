@@ -15,13 +15,17 @@ ActiveRecord::Schema.define(version: 20151023053650) do
 
   create_table "challenges", force: :cascade do |t|
     t.string   "difficulty"
-    t.string   "focal_length_accuracy"
-    t.string   "exposure_accuracy"
-    t.string   "aperture_accuracy"
-    t.string   "iso_speed_accuracy"
+    t.string   "focal_length_guess"
+    t.string   "exposure_guess"
+    t.string   "aperture_guess"
+    t.string   "iso_speed_guess"
+    t.string   "focal_length_correct"
+    t.string   "exposure_correct"
+    t.string   "aperture_correct"
+    t.string   "iso_speed_correct"
     t.string   "overall_score"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.integer  "user_id"
     t.integer  "image_id"
   end

@@ -1,7 +1,7 @@
 module ChallengeHelper
 
   def possible_focal_lengths
-    (10..600).to_a
+    (10..600).to_a.map!{|x| "#{x} mm"}
   end
 
   def possible_exposures
@@ -31,5 +31,19 @@ module ChallengeHelper
   def iso_speed_options(image,number_of_choices)
     (possible_iso_speeds.sample(number_of_choices - 1) << image.iso_speed).shuffle!
   end
-  
+
+  def exif_options(image,number_of_choices)
+    # Hash.new(
+    #   focal_lengths: (possible_focal_lengths.sample(number_of_choices - 1) << image.focal_length).shuffle!,
+    #   exposures: (possible_exposures.sample(number_of_choices - 1) << image.exposure).shuffle!,
+    #   apertures: (possible_apertures.sample(number_of_choices - 1) << image.aperture).shuffle!,
+    #   iso_speeds: (possible_iso_speeds.sample(number_of_choices - 1) << image.iso_speed).shuffle!
+    # )
+    options = Hash.new
+    options["focal_lengths"] = (possible_focal_lengths.sample(number_of_choices - 1) << image.focal_length).shuffle!
+    options["exposures"] = (possible_exposures.sample(number_of_choices - 1) << image.exposure).shuffle!
+    options["apertures"] = (possible_apertures.sample(number_of_choices - 1) << image.aperture).shuffle!
+    options["iso_speeds"] = (possible_iso_speeds.sample(number_of_choices - 1) << image.iso_speed).shuffle!
+    options
+  end
 end
