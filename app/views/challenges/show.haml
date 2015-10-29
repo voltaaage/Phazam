@@ -1,0 +1,29 @@
+= image_tag(@image.medium_url)
+
+%h2 Your Guesses
+%p 
+  %b Focal Length:
+  = @challenge.focal_length_guess
+%p 
+  %b Exposure:
+  = @challenge.exposure_guess
+%p 
+  %b Aperture:
+  = @challenge.aperture_guess
+%p 
+  %b ISO Speed:
+  = @challenge.iso_speed_guess
+
+%h2 Correct Answers
+%p 
+  %b Focal Length:
+  = @image.focal_length
+%p 
+  %b Exposure:
+  = @image.exposure
+%p 
+  %b Aperture:
+  = @image.aperture
+%p 
+  %b ISO Speed:
+  = @image.iso_speed
