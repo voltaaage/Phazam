@@ -43,6 +43,13 @@ module ImagesHelper
     medium_url = FlickRaw.url_m(info)
     large_url = FlickRaw.url_b(info)
 
+    # Original url is not consistently available based on previous experiences
+    begin
+      original_url = FlickRaw.url_o(info) 
+    rescue
+      original_url = FlickRaw.url_b(info)
+    end
+
     # Exif info
     begin
       exif = flickr.photos.getExif(api_key: api_key, photo_id: photo_id).exif

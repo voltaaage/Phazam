@@ -6,6 +6,7 @@ class CreateImages < ActiveRecord::Migration
       t.string :square_url
       t.string :medium_url
       t.string :large_url
+      t.string :original_url
       t.string :focal_length
       t.string :exposure
       t.string :aperture
