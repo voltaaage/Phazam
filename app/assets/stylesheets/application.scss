@@ -114,3 +114,18 @@ ul.rig.columns-4 li {
 .imgDescription{
   margin: 0 0 2.5% 2.5%;
 }
+
+/* display single image */
+
+.singleImage {
+  display: inline-block;
+  padding: 10px;
+  margin: 0 0 2.5% 2.5%;
+  background: #fff;
+  border: 1px solid #ddd;
+  vertical-align: top;
+  box-shadow: 0 0 5px #ddd;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}

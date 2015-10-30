@@ -1,29 +1,50 @@
-= image_tag(@image.medium_url)
-
-%h2 Your Guesses
-%p 
-  %b Focal Length:
-  = @challenge.focal_length_guess
-%p 
-  %b Exposure:
-  = @challenge.exposure_guess
-%p 
-  %b Aperture:
-  = @challenge.aperture_guess
-%p 
-  %b ISO Speed:
-  = @challenge.iso_speed_guess
-
-%h2 Correct Answers
-%p 
-  %b Focal Length:
-  = @image.focal_length
-%p 
-  %b Exposure:
-  = @image.exposure
-%p 
-  %b Aperture:
-  = @image.aperture
-%p 
-  %b ISO Speed:
-  = @image.iso_speed
+.singleImage
+  = link_to(image_tag(@image.large_url),@image.large_url)
+.row
+  .col-md-6
+    %h2 Your Guesses
+    %p 
+      %b Focal Length:
+      = @challenge.focal_length_guess
+      - if @challenge.focal_length_correct 
+        .glyphicon.glyphicon-ok
+      - else
+        .glyphicon.glyphicon-remove
+    %p 
+      %b Exposure:
+      = @challenge.exposure_guess
+      = @challenge.exposure_correct
+      - if @challenge.exposure_correct 
+        .glyphicon.glyphicon-ok
+      - else
+        .glyphicon.glyphicon-remove
+    %p 
+      %b Aperture:
+      = @challenge.aperture_guess
+      = @challenge.aperture_correct
+      - if @challenge.aperture_correct 
+        .glyphicon.glyphicon-ok
+      - else
+        .glyphicon.glyphicon-remove
+    %p 
+      %b ISO Speed:
+      = @challenge.iso_speed_guess
+      = @challenge.iso_speed_correct
+      - if @challenge.iso_speed_correct 
+        .glyphicon.glyphicon-ok
+      - else
+        .glyphicon.glyphicon-remove
+  .col-md-6
+    %h2 Correct Answers
+    %p 
+      %b Focal Length:
+      = @image.focal_length
+    %p 
+      %b Exposure:
+      = @image.exposure
+    %p 
+      %b Aperture:
+      = @image.aperture
+    %p 
+      %b ISO Speed:
+      = @image.iso_speed
