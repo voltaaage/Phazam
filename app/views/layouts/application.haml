@@ -13,9 +13,9 @@
       %li= link_to "Challenge", challenges_path
       .user-info.pull-right
         - if current_user
-          Hello <%= link_to (current_user.name || current_user.email), current_user %>!
-          = link_to edit_user_registration_path, class: 'btn btn-primary btn-sm'
-          .span.glyphicon.glyphicon-user
+          Hello 
+          = link_to (current_user.name || current_user.email), current_user
+          = link_to "", edit_user_registration_path, class: 'glyphicon glyphicon-user'
         - else
           = link_to "Sign In", new_user_session_path 
           or
