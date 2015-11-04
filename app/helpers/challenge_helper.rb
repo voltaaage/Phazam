@@ -9,7 +9,7 @@ module ChallengeHelper
   end
 
   def possible_apertures
-    [1.2,1.4,1.8,2,2.2,2.5,2.8,3.2,3.5,4.0,4.5,5.0,5.6,6.3,7.1,8.0,9.0,10,11,13,14,16,18,20,22]
+    [1.2,1.4,1.8,2,2.2,2.5,2.8,3.2,3.5,4.0,4.5,5.0,5.6,6.3,7.1,8.0,9.0,10,11,13,14,16,18,20,22].map{|x| "f/#{x}"}
   end
 
   def possible_iso_speeds
@@ -33,17 +33,16 @@ module ChallengeHelper
   end
 
   def exif_options(image,number_of_choices)
-    # Hash.new(
-    #   focal_lengths: (possible_focal_lengths.sample(number_of_choices - 1) << image.focal_length).shuffle!,
-    #   exposures: (possible_exposures.sample(number_of_choices - 1) << image.exposure).shuffle!,
-    #   apertures: (possible_apertures.sample(number_of_choices - 1) << image.aperture).shuffle!,
-    #   iso_speeds: (possible_iso_speeds.sample(number_of_choices - 1) << image.iso_speed).shuffle!
-    # )
     options = Hash.new
     options["focal_lengths"] = (possible_focal_lengths.sample(number_of_choices - 1) << image.focal_length).shuffle!
     options["exposures"] = (possible_exposures.sample(number_of_choices - 1) << image.exposure).shuffle!
     options["apertures"] = (possible_apertures.sample(number_of_choices - 1) << image.aperture).shuffle!
     options["iso_speeds"] = (possible_iso_speeds.sample(number_of_choices - 1) << image.iso_speed).shuffle!
     options
+  end
+
+  def find_untested_image(user)
+    # should be not Challenge exists
+    Image.select{|img| img.all_data_available? && Challenge.exists?{|x| x.image_id == img.id && x.user_id == user.id} }.sample
   end
 end

@@ -1,28 +1,26 @@
 class ChallengesController < ApplicationController
   include ChallengeHelper
   def index
-    @challenges = Image.all.sample(36) # Challenge.all
+    # Will eventually be Challenge.where{user_id: current_user}
+    @challenges = Challenge.select{|x| x.user_id == current_user.id} 
   end
 
   def new
     @challenge = Challenge.new
-    @image = Image.select{|x| x.all_data_available?}.sample
-    @focal_length_options = focal_length_options(@image,4)
-    @exposure_options = exposure_options(@image,4)
-    @aperture_options = aperture_options(@image,4)
-    @iso_speed_options = iso_speed_options(@image,4)
+    @image = find_untested_image(current_user)
     @exif_options = exif_options(@image,4)
   end
 
   def create
     challenge = Challenge.create(challenge_params)
+    challenge.user_id = current_user.id if current_user
     if challenge.save
       image = Image.find(challenge.image_id)
       challenge.scoring(image)
-      flash[:notice]="Success - You have completed the challenge."
+      flash[:notice] = "Success - You have completed the challenge."
       redirect_to challenge
     else
-      flash[:error]="Something went wrong."
+      flash[:error] = "Something went wrong."
       redirect_to challenges_path
     end
   end
