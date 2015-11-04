@@ -2,15 +2,14 @@
   .col-md-2
     %b= exif_name
   .col-md-4
-    .form-group
+    .btn-group
       - (0..option_value.length-1).each do |i|
-        = radio_button_tag "#{exif_attribute}_guess", option_value[i], false
-        = option_value[i]
-        / %input.input{type: "radio",
-        /   id: exif_attribute,
-        /   name: "#{exif_attribute}_guess",
-        /   value:option_value[i],
-        /   checked:true}= option_value[i]
-      / - (0..option_value.length-1).each do |i|
-      /   .btn= option_value[i]
-
+        %input.btn.btn-default{type: "button",
+          id: exif_attribute,
+          name: "#{exif_attribute}_guess",
+          value:option_value[i]}
+/ %input.input{type: "radio",
+/ id: exif_attribute,
+/ name: "#{exif_attribute}_guess",
+/ value:option_value[i],
+/ checked:true}= option_value[i]

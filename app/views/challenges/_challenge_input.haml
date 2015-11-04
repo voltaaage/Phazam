@@ -1,9 +1,9 @@
 %h4= @image.title
 = form_for @challenge do |f|
-  = render 'options',{exif_attribute: "focal_length", exif_name: "Focal Length", option_value: @focal_length_options, form: f}
-  = render 'options',{exif_attribute: "exposure", exif_name: "Exposure", option_value: @exposure_options}
-  = render 'options',{exif_attribute: "aperture", exif_name: "Aperture", option_value: @aperture_options}
-  = render 'options',{exif_attribute: "iso_speed", exif_name: "ISO Speed", option_value: @iso_speed_options}
+  = render 'options',{exif_attribute: "focal_length", exif_name: "Focal Length", option_value: exif_options["focal_lengths"], form: f}
+  = render 'options',{exif_attribute: "exposure", exif_name: "Exposure", option_value: exif_options["exposures"]}
+  = render 'options',{exif_attribute: "aperture", exif_name: "Aperture", option_value: exif_options["apertures"]}
+  = render 'options',{exif_attribute: "iso_speed", exif_name: "ISO Speed", option_value: exif_options["iso_speeds"]}
   .form-group
     = hidden_field_tag "image_id",:image_id, value: @image.id
   .form-group
