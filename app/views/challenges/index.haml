@@ -6,4 +6,4 @@
 %p Here is a list of your recent challenges and how you fared
 %ul.rig.columns-3
   - @challenges.each do |challenge|
-    = render "images/image", {challenge: challenge, image: Image.find(challenge.image_id)} #image will be challenge.image_id when model is complete
+    %li= render "challenge_image", {challenge: challenge, image: Image.find(challenge.image_id), link: challenge}

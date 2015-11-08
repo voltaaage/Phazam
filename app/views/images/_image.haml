@@ -1,19 +1,18 @@
-%li
-  .imgWrap
-    = image_tag(image.large_url)
-    .imgContainer
-      .imgDescription
-        %h4= link_to(image.title,image.large_url)
-        %br
+.imgWrap
+  = image_tag image.large_url
+  .imgContainer
+    .imgDescription
+      .row
+        %h4= link_to(image.title,link)
+      .row
         %b Focal Length:
         = image.focal_length
-        %br
+      .row
         %b Exposure:
         = image.exposure
-        %br
+      .row
         %b Aperture:
         = image.aperture
-        %br
+      .row
         %b ISO Speed:
         = image.iso_speed
-        

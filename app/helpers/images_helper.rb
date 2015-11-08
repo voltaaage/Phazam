@@ -1,4 +1,14 @@
 module ImagesHelper
+
+  # Helps prevent multiple api calls in the same day
+  def flickr_images_from_today(per_page)
+    images = Image.where({ created_at: (Time.now.midnight - 1.day)..Time.now.midnight, all_data_available?: true}).to_a
+    if images.length == 0
+      images = create_image_array_from_interesting_photos(per_page) #if images.length == 0
+    end
+    images
+  end
+
   def create_image_array_from_interesting_photos(per_page)
     images = []
     flickr.interestingness.getList(api_key: ENV['FLICKR_KEY'], per_page: per_page).each do |photo|
@@ -8,25 +18,7 @@ module ImagesHelper
     images
   end
 
-  def create_image_array_from_recently_uploaded(per_page)
-    images = []
-    flickr.photos.getRecent(api_key: ENV['FLICKR_KEY'], per_page: per_page).each do |photo|
-      image = process_image(ENV['FLICKR_KEY'],photo)
-      images << image if image.all_data_available?
-    end
-    images
-  end
-
-  def create_image_array_from_user(flicker_user_id,per_page)
-    images = []
-    flickr.people.getPhotos(user_id: flicker_user_id, api_key: ENV['FLICKR_KEY'], per_page: per_page).each do |photo|
-      image = process_image(ENV['FLICKR_KEY'],photo)
-      images << image if image.all_data_available?
-    end
-    images
-  end
-
-  private 
+  private
 
   def process_image(api_key,photo)
     image = Image.find{ |x| x.photo_id == photo.id}
@@ -45,7 +37,7 @@ module ImagesHelper
 
     # Original url is not consistently available based on previous experiences
     begin
-      original_url = FlickRaw.url_o(info) 
+      original_url = FlickRaw.url_o(info)
     rescue
       original_url = FlickRaw.url_b(info)
     end

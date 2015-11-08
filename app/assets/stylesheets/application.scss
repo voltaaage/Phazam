@@ -1,18 +1,3 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -28,95 +13,7 @@
   width: 75%;
 }
 
-/* Images */
-ul.rig {
-  list-style: none;
-  font-size: 0px;
-  margin-left: -2.5%;
-}
-ul.rig li {
-  display: inline-block;
-  padding: 10px;
-  margin: 0 0 2.5% 2.5%;
-  background: #fff;
-  border: 1px solid #ddd;
-  font-size: 16px;
-  font-size: 1rem;
-  vertical-align: top;
-  box-shadow: 0 0 5px #ddd;
-  box-sizing: border-box;
-  // -moz-box-sizing: border-box;
-  // -webkit-box-sizing: border-box;
-}
-ul.rig li img { 
-  max-width: 100%;
-  height: auto;
-  margin: 0 0 10px;
-}
-ul.rig li h3 {
-  margin: 0 0 5px;
-}
-ul.rig li p {
-  font-size: .9em;
-  line-height: 1.5em;
-  color: #999;
-}
-ul.rig.colums-2 li {
-  width: 47.5%;
-}
-ul.rig.columns-3 li {
-  width: 30.83%;
-}
-ul.rig.columns-4 li {
-  width: 22.5%;
-}
-@media (max-width: 480px) {
-  ul.grid-nav li { 
-    display: block;
-    margin: 0 0 5px;
-  }
-  ul.grid-nav li a {
-    display: block;
-  }
-  ul.rig {
-    margin-left: 0;
-  }
-  ul.rig li {
-    width: 100% !important;
-    margin: 0 0 20px;
-  }
-}
-
-/* hover */
-
-.imgWrap {
-  position: relative;
-}
-
-.imgContainer {
-  position: absolute;
-  top: 0px;
-  bottom: 0;
-  left: 0px;
-  right: 0;
-  background: rgba(255,255,255,1);
-  color: 0;
-
-  visibility: hidden;
-  opacity: 0;
-}
-
-.imgWrap:hover .imgContainer {
-  visibility: visible;
-  opacity: .75;
-}
-
-.imgDescription{
-  margin: 0 0 2.5% 2.5%;
-}
-
-/* display single image */
-
+/* formatting for single image display */
 .singleImage {
   display: inline-block;
   padding: 10px;
@@ -133,37 +30,94 @@ ul.rig.columns-4 li {
 .fitWidth {
   width: 100%;
   height: auto;
+  align: left;
 }
 
-
-/* input buttons */
-input[type="radio"].toggle:checked + label {
-  background-image: linear-gradient(to top,#969696,#727272);
-  box-shadow: inset 0 1px 6px rgba(41, 41, 41, 0.2),
-                    0 1px 2px rgba(0, 0, 0, 0.05);
-  cursor: default;
-  color: #E6E6E6;
-  border-color: transparent;
-  text-shadow: 0 1px 1px rgba(40, 40, 40, 0.75);
+del.wrongAnswer {
+  color: #ff323a;
 }
 
-input[type="radio"].toggle + label {
-  width: 3em;
+/* Multiple Image Display */
+ul.rig {
+  list-style: none;
+  font-size: 0px;
+  margin-left: -2.5%;
+}
+ul.rig li {
+  display: inline-block;
+  padding: 10px;
+  margin: 0 0 2.5% 2.5%;
+  background: #fff;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  font-size: 1rem;
+  vertical-align: top;
+  box-shadow: 0 0 5px 0 #ddd;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+ul.rig li img { 
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 10px 0;
+}
+ul.rig li h3 {
+  margin: 0 0 5px 0;
+}
+ul.rig li p {
+  font-size: .9em;
+  line-height: 1.5em;
+  color: #999;
+}
+ul.rig.colums-2 li {
+  width: 47.5%;
+}
+ul.rig.columns-3 li {
+  width: 30.83%;
+}
+ul.rig.columns-4 li {
+  width: 22.5%;
+}
+@media (max-width: 480px) {
+  ul.grid-nav li {
+    display: block;
+    margin: 0 0 5px 0;
+  }
+  ul.grid-nav li a {
+    display: block;
+  }
+  ul.rig {
+    margin-left: 0;
+  }
+  ul.rig li {
+    width: 100% !important;
+    margin: 0 0 20px 0;
+  }
 }
 
-input[type="radio"].toggle:checked + label.btn:hover {
-  background-color: inherit;
-  background-position: 0 0;
-  transition: none;
+/* Data on Hover */
+.imgWrap {
+  position: relative;
 }
 
-input[type="radio"].toggle-left + label {
-  border-right: 0;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+.imgContainer {
+  position: absolute;
+  top: 0px;
+  bottom: 0;
+  left: 0px;
+  right: 0;
+  background: rgba(255,255,255,1);
+  color: 0;
+  visibility: hidden;
+  opacity: 0;
 }
 
-input[type="radio"].toggle-right + label {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+.imgWrap:hover .imgContainer {
+  visibility: visible;
+  opacity: .75;
+}
+
+.imgDescription{
+  margin: 5% 0% 0% 8%;
 }

@@ -1,21 +1,21 @@
-%h3= @image.title
-= link_to(image_tag(@image.large_url),@image.large_url)
-%h3= @image.title
-%p 
-  %b Image ID: 
-  = @image.photo_id
-%p 
-  %b Focal Length:
-  = @image.focal_length
-%p 
-  %b Exposure:
-  = @image.exposure
-%p 
-  %b Aperture:
-  = @image.aperture
-%p 
-  %b ISO Speed:
-  = @image.iso_speed
-%p 
-  %b All_data_available:
-  = @image.all_data_available?
+.row
+  .col-md-8
+    = link_to @image.large_url do
+      = image_tag @image.large_url, :class => "singleImage fitWidth"
+  .col-md-4
+    %h3 Exif Data
+    %row
+      %b Focal Length:
+      = @image.focal_length
+    %br
+    %row
+      %b Exposure:
+      = @image.exposure
+    %br
+    %row
+      %b Aperture:
+      = @image.aperture
+    %br
+    %row
+      %b ISO Speed:
+      = @image.iso_speed

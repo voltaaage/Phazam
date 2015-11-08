@@ -6,12 +6,12 @@
   = javascript_include_tag 'application', {'data-turbolinks-track' => true}
   = csrf_meta_tags
 %body
-  .container
+  .container-fluid
     .ul.nav.nav-tabs
       %li= link_to "Home", root_path
-      %li= link_to "Images", images_path
-      %li= link_to "Challenge", challenges_path
-      .user-info.pull-right
+      %li= link_to "View Photos", images_path
+      %li= link_to "Start A Challenge", challenges_path
+      .user-info.navbar-right
         - if current_user
           Hello 
           = link_to (current_user.name || current_user.email), current_user

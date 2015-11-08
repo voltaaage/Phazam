@@ -1,4 +1,33 @@
 %h3 Welcome to the Phazam Challenge
 = link_to @image.large_url do
   = image_tag @image.large_url, :class => "singleImage fitWidth"
-= render partial: 'challenge_input', locals: {challenge: @challenge,image: @image,  exif_options: @exif_options}
+%h4= @image.title
+= form_for @challenge do |f|
+  .row
+    .col-md-2
+      %b Focal Length
+    .col-md-4
+      - (0..@focal_lengths.length-1).each do |i|
+        %input.input{type: "radio", id: "focal_length", name: "focal_length_guess", value: @focal_lengths[i], checked:true}= @focal_lengths[i]
+  .row
+    .col-md-2
+      %b Exposure
+    .col-md-4
+      - (0..@exposures.length-1).each do |i|
+        %input.input{type: "radio", id: "exposure", name: "exposure_guess", value: @exposures[i], checked:true}= @exposures[i]
+  .row
+    .col-md-2
+      %b Aperture
+    .col-md-4
+      - (0..@apertures.length-1).each do |i|
+        %input.input{type: "radio", id: "aperture", name: "aperture_guess", value: @apertures[i], checked:true}= @apertures[i]
+  .row
+    .col-md-2
+      %b ISO Speed
+    .col-md-4
+      - (0..@iso_speeds.length-1).each do |i|
+        %input.input{type: "radio", id: "iso_speed", name: "iso_speed_guess", value: @iso_speeds[i], checked:true}= @iso_speeds[i]
+  .form-group
+    = hidden_field_tag "image_id",:image_id, value: @image.id
+  .form-group
+    = f.submit "Submit", class: "btn btn-primary"

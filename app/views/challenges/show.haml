@@ -1,55 +1,6 @@
-= link_to @image.large_url do
-  = image_tag @image.large_url, :class => "singleImage fitWidth"
 .row
-  .col-md-1
+  .col-md-8
+    = link_to @image.large_url do
+      = image_tag @image.large_url, :class => "singleImage fitWidth"
   .col-md-4
-    %h2 Your Guesses
-    %row
-      %b Focal Length:
-      = @challenge.focal_length_guess
-      - if @challenge.focal_length_correct 
-        .glyphicon.glyphicon-ok
-      - else
-        .glyphicon.glyphicon-remove
-    %br
-    %row
-      %b Exposure:
-      = @challenge.exposure_guess
-      - if @challenge.exposure_correct 
-        .glyphicon.glyphicon-ok
-      - else
-        .glyphicon.glyphicon-remove
-    %br
-    %row
-      %b Aperture:
-      = @challenge.aperture_guess
-      - if @challenge.aperture_correct 
-        .glyphicon.glyphicon-ok
-      - else
-        .glyphicon.glyphicon-remove
-    %br
-    %row
-      %b ISO Speed:
-      = @challenge.iso_speed_guess
-      - if @challenge.iso_speed_correct 
-        .glyphicon.glyphicon-ok
-      - else
-        .glyphicon.glyphicon-remove
-    %br
-  .col-md-4
-    %h2 Correct Answers
-    %row
-      %b Focal Length:
-      = @image.focal_length
-    %br
-    %row
-      %b Exposure:
-      = @image.exposure
-    %br
-    %row
-      %b Aperture:
-      = @image.aperture
-    %br
-    %row
-      %b ISO Speed:
-      = @image.iso_speed
+    = render 'challenge_answers', {challenge: @challenge, image: @image}

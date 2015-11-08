@@ -1,0 +1,5 @@
+.imgWrap
+  = image_tag image.large_url
+  .imgContainer
+    .imgDescription
+      = render 'challenge_answers', {challenge: challenge, image: image}

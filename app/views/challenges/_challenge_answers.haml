@@ -1,0 +1,36 @@
+%h3= link_to "Your Guesses", challenge
+%row
+  %b Focal Length:
+  - if challenge.focal_length_correct
+    = challenge.focal_length_guess
+    .glyphicon.glyphicon-ok
+  - else
+    %del.wrongAnswer= challenge.focal_length_guess
+    = image.focal_length
+%br
+%row
+  %b Exposure:
+  - if challenge.exposure_correct
+    = challenge.focal_length_guess
+    .glyphicon.glyphicon-ok
+  - else
+    %del.wrongAnswer= challenge.exposure_guess
+    = image.exposure
+%br
+%row
+  %b Aperture:
+  - if challenge.aperture_correct
+    = challenge.aperture_guess
+    .glyphicon.glyphicon-ok
+  - else
+    %del.wrongAnswer= challenge.aperture_guess
+    = image.aperture
+%br
+%row
+  %b ISO Speed:
+  - if challenge.iso_speed_correct
+    = challenge.iso_speed_guess
+    .glyphicon.glyphicon-ok
+  - else
+    %del.wrongAnswer= challenge.iso_speed_guess
+    = image.iso_speed
