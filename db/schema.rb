@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20151023053650) do
     t.boolean  "exposure_correct"
     t.boolean  "aperture_correct"
     t.boolean  "iso_speed_correct"
-    t.string   "overall_score"
+    t.integer  "overall_score"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.integer  "user_id"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20151023053650) do
     t.string   "square_url"
     t.string   "medium_url"
     t.string   "large_url"
+    t.string   "original_url"
     t.string   "focal_length"
     t.string   "exposure"
     t.string   "aperture"

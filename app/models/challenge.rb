@@ -2,27 +2,43 @@ class Challenge < ActiveRecord::Base
   belongs_to :user
   belongs_to :image
 
-  def attribute_scoring(image)
-    self.update(
-      focal_length_correct: (self.focal_length_guess == image.focal_length),
-      exposure_correct: (self.exposure_guess == image.exposure),
-      aperture_correct: (self.aperture_guess == image.aperture),
-      iso_speed_correct: (self.iso_speed_guess == image.iso_speed)
-      )
+  after_create :attribute_scoring
+
+  def attribute_scoring
+    self.update_attributes(
+      focal_length_correct: correct_focal_length_guess,
+      exposure_correct: correct_exposure_guess,
+      aperture_correct: correct_aperture_guess,
+      iso_speed_correct: correct_iso_speed_guess,
+      overall_score: overall_scoring
+    )
   end
+
+  private
 
   def overall_scoring
     score = 0
-    if self.focal_length_correct
-      score = score + 1
-    elsif self.exposure_correct
-      score = score + 1
-    elsif self.aperture_correct
-      score = score + 1
-    elsif self.iso_speed_correct
-      score = score + 1
-    end
-    score      
+    score = score + 1 if self.focal_length_correct
+    score = score + 1 if self.exposure_correct
+    score = score + 1 if self.aperture_correct
+    score = score + 1 if self.iso_speed_correct
+    score
+  end
+
+  def correct_focal_length_guess
+    self.focal_length_guess == self.image.focal_length
+  end
+
+  def correct_exposure_guess
+    self.exposure_guess == self.image.exposure
+  end
+
+  def correct_aperture_guess
+    self.aperture_guess == self.image.aperture
+  end
+
+  def correct_iso_speed_guess
+    self.iso_speed_guess == self.image.iso_speed
   end
 
 end

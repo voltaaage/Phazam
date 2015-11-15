@@ -5,4 +5,24 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_many :challenges
+
+  def focal_length_accuracy
+
+  end
+
+  def exposure_accuracy
+
+  end
+
+  def aperture_accuracy
+
+  end
+
+  def iso_speed_accuracy
+
+  end
+
+  def overall_accuracy
+
+  end
 end
