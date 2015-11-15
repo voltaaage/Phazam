@@ -6,26 +6,23 @@ class ChallengesController < ApplicationController
   end
 
   def new
-    @challenge = Challenge.new
-    @image = find_untested_image(current_user)
+    @image = find_unchallenged_image(current_user)
+    @challenge = Challenge.new(image: @image)
     @focal_lengths = focal_length_options(@image,4)
     @exposures = exposure_options(@image,4)
     @apertures = aperture_options(@image,4)
     @iso_speeds = iso_speed_options(@image,4)
-    @exif_options = exif_options(@image,4)
   end
 
   def create
     challenge = Challenge.create(challenge_params)
     challenge.user_id = current_user.id if current_user
     if challenge.save
-      image = challenge.image
-      challenge.attribute_scoring(image)
       flash[:notice] = "Success - You have completed the challenge."
       redirect_to challenge
     else
       flash[:error] = "Something went wrong."
-      redirect_to challenges_path
+      redirect_to challenges
     end
   end
 

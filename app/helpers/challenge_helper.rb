@@ -32,17 +32,13 @@ module ChallengeHelper
     (possible_iso_speeds.sample(number_of_choices - 1) << image.iso_speed).shuffle!
   end
 
-  def exif_options(image,number_of_choices)
-    options = Hash.new
-    options["focal_lengths"] = (possible_focal_lengths.sample(number_of_choices - 1) << image.focal_length).shuffle!
-    options["exposures"] = (possible_exposures.sample(number_of_choices - 1) << image.exposure).shuffle!
-    options["apertures"] = (possible_apertures.sample(number_of_choices - 1) << image.aperture).shuffle!
-    options["iso_speeds"] = (possible_iso_speeds.sample(number_of_choices - 1) << image.iso_speed).shuffle!
-    options
-  end
-
-  def find_untested_image(user)
-    # should be not Challenge exists
-    Image.select{|img| img.all_data_available? && Challenge.exists?{|x| x.image_id == img.id && x.user_id == user.id} }.sample
+  def find_unchallenged_image(user)
+    # Image.select{|img| img.all_data_available? && !Challenge.exists?(image_id: img.id, user_id: user.id)}.sample
+    unchallenged = false
+    until unchallenged
+      image = Image.all.sample
+      unchallenged = true if image.all_data_available? && !Challenge.exists?(image_id: image.id, user_id: user.id) && image != nil
+    end
+    image
   end
 end

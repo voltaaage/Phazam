@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-describe ImageHelper do
+describe ImagesHelper do
 
-  
 end
