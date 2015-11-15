@@ -17,7 +17,7 @@ class CreateChallenges < ActiveRecord::Migration
       t.boolean :aperture_correct
       t.boolean :iso_speed_correct
 
-      t.string :overall_score
+      t.integer :overall_score
 
       t.timestamps null: false
     end
