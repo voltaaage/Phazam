@@ -1,4 +1,3 @@
-%h3 Welcome to the Phazam Challenge
 .row
   .col-md-8
     = link_to @image.large_url do
@@ -12,25 +11,36 @@
           %b Focal Length
         .col-md-9
           - (0..@focal_lengths.length-1).each do |i|
-            %input.input{type: "radio", id: "focal_length", name: "focal_length_guess", value: @focal_lengths[i], checked:true}= @focal_lengths[i]
+            %input.input{type: "radio", id: "focal_length", name: "focal_length_guess", value: @focal_lengths[i], checked:true}
+            = @focal_lengths[i]
+            %br
+      %br
       .row
         .col-md-3
           %b Exposure
         .col-md-9
           - (0..@exposures.length-1).each do |i|
-            %input.input{type: "radio", id: "exposure", name: "exposure_guess", value: @exposures[i], checked:true}= @exposures[i]
+            %input.input{type: "radio", id: "exposure", name: "exposure_guess", value: @exposures[i], checked:true}
+            = @exposures[i]
+            %br
+      %br
       .row
         .col-md-3
           %b Aperture
         .col-md-9
           - (0..@apertures.length-1).each do |i|
-            %input.input{type: "radio", id: "aperture", name: "aperture_guess", value: @apertures[i], checked:true}= @apertures[i]
+            %input.input{type: "radio", id: "aperture", name: "aperture_guess", value: @apertures[i], checked:true}
+            = @apertures[i]
+            %br
+      %br
       .row
         .col-md-3
           %b ISO Speed
         .col-md-9
           - (0..@iso_speeds.length-1).each do |i|
-            %input.input{type: "radio", id: "iso_speed", name: "iso_speed_guess", value: @iso_speeds[i], checked:true}= @iso_speeds[i]
+            %input.input{type: "radio", id: "iso_speed", name: "iso_speed_guess", value: @iso_speeds[i], checked:true}
+            = @iso_speeds[i]
+            %br
       .form-group
         = hidden_field_tag "image_id",:image_id, value: @image.id
       .form-group
