@@ -22,24 +22,25 @@ module ImagesHelper
 
   def process_image(api_key,photo)
     image = Image.find{ |x| x.photo_id == photo.id}
-    image = Image.new if image == nil
+    image = image || Image.new
     get_and_update_photo_info(api_key,photo.id,image) if !image.all_data_available?
     image
   end
 
   def get_and_update_photo_info(api_key,photo_id,image)
+    attributes = Hash.new
     # General info
     info = flickr.photos.getInfo(photo_id: photo_id)
-    title = info.title
-    square_url = FlickRaw.url_s(info)
-    medium_url = FlickRaw.url_m(info)
-    large_url = FlickRaw.url_b(info)
+    attributes['title'] = info.title
+    attributes['square_url'] = FlickRaw.url_s(info)
+    attributes['medium_url'] = FlickRaw.url_m(info)
+    attributes['large_url'] = FlickRaw.url_b(info)
 
     # Original url is not consistently available based on previous experiences
     begin
-      original_url = FlickRaw.url_o(info)
+      attributes['original_url'] = FlickRaw.url_o(info)
     rescue
-      original_url = FlickRaw.url_b(info)
+      attributes['original_url'] = FlickRaw.url_b(info)
     end
 
     # Exif info
@@ -49,12 +50,12 @@ module ImagesHelper
       return nil
     end
 
-    focal_length = parse_exif_data(exif,"Focal Length","clean")
-    exposure = parse_exif_data(exif,"Exposure","clean")
-    aperture = parse_exif_data(exif,"Aperture","clean")
-    iso_speed = parse_exif_data(exif,"ISO Speed","raw")
+    attributes['focal_length'] = parse_exif_data(exif,"Focal Length","clean")
+    attributes['exposure'] = parse_exif_data(exif,"Exposure","clean")
+    attributes['aperture'] = parse_exif_data(exif,"Aperture","clean")
+    attributes['iso_speed'] = parse_exif_data(exif,"ISO Speed","raw")
 
-    image.update_info(photo_id,title,square_url,medium_url,large_url,focal_length,exposure,aperture,iso_speed)
+    image.update_info(attributes)
   end
 
   def parse_exif_data(exif,label,content)
