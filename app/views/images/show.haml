@@ -3,7 +3,7 @@
     = link_to @image.large_url do
       = image_tag @image.large_url, :class => "singleImage fitWidth"
   .col-md-4
-    %h3 Exif Data
+    %h3= @image.title
     %row
       %b Focal Length:
       = @image.focal_length
