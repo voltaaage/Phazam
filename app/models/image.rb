@@ -6,8 +6,6 @@ has_many :challenges
     self.update(
       photo_id: attributes['photo_id'],
       title: attributes['title'],
-      square_url: attributes['square_url'],
-      medium_url: attributes['medium_url'],
       large_url: attributes['large_url'],
       focal_length: attributes['focal_length'],
       exposure: attributes['exposure'],

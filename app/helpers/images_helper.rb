@@ -32,8 +32,6 @@ module ImagesHelper
     # General info
     info = flickr.photos.getInfo(photo_id: photo_id)
     attributes['title'] = info.title
-    attributes['square_url'] = FlickRaw.url_s(info)
-    attributes['medium_url'] = FlickRaw.url_m(info)
     attributes['large_url'] = FlickRaw.url_b(info)
 
     # Original url is not consistently available based on previous experiences
