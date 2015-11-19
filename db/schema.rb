@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 20151023053650) do
   create_table "images", force: :cascade do |t|
     t.string   "photo_id"
     t.string   "title"
-    t.string   "square_url"
     t.string   "medium_url"
     t.string   "large_url"
     t.string   "original_url"
@@ -44,9 +43,8 @@ ActiveRecord::Schema.define(version: 20151023053650) do
     t.string   "exposure"
     t.string   "aperture"
     t.string   "iso_speed"
-    t.boolean  "all_data_available?", default: false
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|

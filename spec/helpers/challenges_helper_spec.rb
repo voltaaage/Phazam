@@ -7,57 +7,57 @@ describe ChallengeHelper do
 
   describe 'focal length options' do
     it 'should return 4 options' do
-      expect(focal_length_options(@image,4).length).to eq 4
+      expect(focal_length_options(@image, 4).length).to eq 4
     end
 
     it 'should return 6 options' do
-      expect(focal_length_options(@image,6).length).to eq 6
+      expect(focal_length_options(@image, 6).length).to eq 6
     end
 
     it 'should contain the focal length of the image' do
-      expect(focal_length_options(@image,4).include? @image.focal_length).to be_truthy
+      expect(focal_length_options(@image, 4).include? @image.focal_length).to be_truthy
     end
   end
 
   describe 'exposure options' do
     it 'should return 4 options' do
-      expect(exposure_options(@image,4).length).to eq 4
+      expect(exposure_options(@image, 4).length).to eq 4
     end
 
     it 'should return 6 options' do
-      expect(exposure_options(@image,6).length).to eq 6
+      expect(exposure_options(@image, 6).length).to eq 6
     end
 
     it 'should contain the focal length of the image' do
-      expect(exposure_options(@image,4).include? @image.exposure).to be_truthy
+      expect(exposure_options(@image, 4).include? @image.exposure).to be_truthy
     end
   end
 
   describe 'aperture options' do
     it 'should return 4 options' do
-      expect(aperture_options(@image,4).length).to eq 4
+      expect(aperture_options(@image, 4).length).to eq 4
     end
 
     it 'should return 6 options' do
-      expect(aperture_options(@image,6).length).to eq 6
+      expect(aperture_options(@image, 6).length).to eq 6
     end
 
     it 'should contain the focal length of the image' do
-      expect(aperture_options(@image,4).include? @image.aperture).to be_truthy
+      expect(aperture_options(@image, 4).include? @image.aperture).to be_truthy
     end
   end
 
   describe 'iso speed options' do
     it 'should return 4 options' do
-      expect(iso_speed_options(@image,4).length).to eq 4
+      expect(iso_speed_options(@image, 4).length).to eq 4
     end
 
     it 'should return 6 options' do
-      expect(iso_speed_options(@image,6).length).to eq 6
+      expect(iso_speed_options(@image, 6).length).to eq 6
     end
 
     it 'should contain the focal length of the image' do
-      expect(iso_speed_options(@image,4).include? @image.iso_speed).to be_truthy
+      expect(iso_speed_options(@image, 4).include? @image.iso_speed).to be_truthy
     end
   end
 
