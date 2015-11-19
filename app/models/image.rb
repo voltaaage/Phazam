@@ -1,7 +1,6 @@
 class Image < ActiveRecord::Base
 has_many :challenges
 
-<<<<<<< HEAD
   def process_flickr_info(api_key,photo_id)
     general_info(api_key,photo_id)
     exif_data(api_key,photo_id)
@@ -20,7 +19,6 @@ has_many :challenges
       title: info.title,
       medium_url: FlickRaw.url_m(info),
       large_url: FlickRaw.url_b(info)
->>>>>>> optimization
     )
   end
 
