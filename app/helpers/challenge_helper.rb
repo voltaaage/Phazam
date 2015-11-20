@@ -37,7 +37,7 @@ module ChallengeHelper
     unchallenged = false
     until unchallenged
       image = Image.all.sample
-      unchallenged = true if image.all_data_available? && !Challenge.exists?(image_id: image.id, user_id: user.id) && image != nil
+      unchallenged = true if image.all_data_available && !Challenge.exists?(image_id: image.id, user_id: user.id) && image != nil
     end
     image
   end
