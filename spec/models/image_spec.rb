@@ -1,0 +1,67 @@
+require 'rails_helper'
+
+describe Images do
+
+  # describe '#process_flickr_info' do
+  #   before do
+  #     @photo_id = 22497337133
+  #     @api_key = ENV['FLICKR_KEY']
+  #     @image = Image.new
+  #     @image.process_flickr_info(@api_key,@photo_id)
+  #   end
+
+  #   it 'returns an image' do
+  #     expect(@image).to be_an_instance_of(Image)
+  #   end
+
+  #   it 'populates the image with general info' do
+  #     expect(@image.photo_id).not_to be_nil
+  #     expect(@image.title).not_to be_nil
+  #     expect(@image.medium_url).not_to be_nil
+  #     expect(@image.large_url).not_to be_nil
+  #   end
+
+  #   it 'populates the image with exif data' do
+  #     expect(@image.focal_length).not_to be_nil
+  #     expect(@image.exposure).not_to be_nil
+  #     expect(@image.aperture).not_to be_nil
+  #     expect(@image.iso_speed).not_to be_nil
+  #   end
+  # end
+
+  describe 'all_data_available' do
+    it 'returns true when all attributes are available' do
+      image = Image.new(focal_length: "35mm", exposure: "0.005 sec (1/200)", aperture: "f/2.0", iso_speed: "200")
+
+      expect(image.all_data_available).to be_truthy
+    end
+
+    it 'returns false when one attribute is missing' do
+      image = Image.new(focal_length: "35mm", exposure: "0.005 sec (1/200)", aperture: "f/2.0")
+
+      expect(image.all_data_available).to be_falsy
+    end
+
+    it 'returns false when all attributes are missing' do
+      image = Image.new
+
+      expect(image.all_data_available).to be_falsy
+    end
+  end
+
+  describe '#self.flickr_images_from_today' do
+    it 'returns an array of images' do
+      images = Image.flickr_images_from_today(10)
+
+      expect(images).to be_an_instance_of(Array)
+      expect(images.first).to be_an_instance_of(Image)
+      expect(images.last).to be_an_instance_of(Image)
+    end
+
+    it 'does not call #create_image_array_from_interesting_photos if existing images from today exist' do
+      image = Image.new(created_at: Time.now.midnight + 1.hour)
+
+      expect(Image.flickr_images_from_today(10)).not_to receive(:process_flickr_info)
+    end
+  end
+end

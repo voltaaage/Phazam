@@ -1,7 +1,6 @@
 class ImagesController < ApplicationController
-  include ImagesHelper
   def index
-    @images = flickr_images_from_today(48)
+    @images = Image.flickr_images_from_today(48)
   end
 
   def show
