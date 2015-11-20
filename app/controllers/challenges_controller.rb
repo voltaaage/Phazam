@@ -1,17 +1,16 @@
 class ChallengesController < ApplicationController
-  include ChallengeHelper
   def index
     # Will eventually be Challenge.where{user_id: current_user}
-    @challenges = Challenge.select{|x| x.user_id == current_user.id}
+    @challenges = Challenge.all
   end
 
   def new
-    @image = find_unchallenged_image(current_user)
+    @image = Challenge.find_unchallenged_image(current_user)
     @challenge = Challenge.new(image: @image)
-    @focal_lengths = focal_length_options(@image,4)
-    @exposures = exposure_options(@image,4)
-    @apertures = aperture_options(@image,4)
-    @iso_speeds = iso_speed_options(@image,4)
+    @focal_lengths = Challenge.focal_length_options(@image,4)
+    @exposures = Challenge.exposure_options(@image,4)
+    @apertures = Challenge.aperture_options(@image,4)
+    @iso_speeds = Challenge.iso_speed_options(@image,4)
   end
 
   def create
