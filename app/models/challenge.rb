@@ -2,7 +2,7 @@ class Challenge < ActiveRecord::Base
   belongs_to :user
   belongs_to :image
 
-  after_create :attribute_scoring
+  # after_create :attribute_scoring
 
   def attribute_scoring
     self.update_attributes(

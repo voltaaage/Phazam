@@ -11,7 +11,7 @@
       %li= link_to "Home", root_path
       %li= link_to "View Photos", images_path
       - if current_user
-        %li= link_to "View Challenges", challenges_path
+        %li= link_to "Start A New Challenge", new_challenge_path
       .user-info.navbar-right
         - if current_user
           Hello

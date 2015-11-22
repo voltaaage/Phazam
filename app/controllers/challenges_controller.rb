@@ -1,6 +1,5 @@
 class ChallengesController < ApplicationController
   def index
-    # Will eventually be Challenge.where{user_id: current_user}
     @challenges = Challenge.all
   end
 
@@ -15,8 +14,9 @@ class ChallengesController < ApplicationController
 
   def create
     challenge = Challenge.create(challenge_params)
-    challenge.user_id = current_user.id if current_user
+    challenge.user = current_user if current_user
     if challenge.save
+      challenge.attribute_scoring
       flash[:notice] = "Success - You have completed the challenge."
       redirect_to challenge
     else

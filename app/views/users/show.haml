@@ -1,0 +1,12 @@
+%h3= @user.name
+%br
+%p= "Focal Length: #{@user.correct_focal_length_guesses} / #{@user.total_number_of_challenges}"
+%p= "Exposure: #{@user.correct_exposure_guesses} / #{@user.total_number_of_challenges}"
+%p= "Aperture: #{@user.correct_aperture_guesses} / #{@user.total_number_of_challenges}"
+%p= "ISO Speed: #{@user.correct_iso_speed_guesses} / #{@user.total_number_of_challenges}"
+%p= "Overall Accuracy: #{@user.total_correct_guesses} / #{@user.total_guesses}"
+%br
+%p Here is a list of your recent challenges and how you fared
+%ul.rig.columns-3
+  - @challenges.each do |challenge|
+    %li= render "/challenges/challenge_image", {challenge: challenge, image: Image.find(challenge.image_id), link: challenge}
