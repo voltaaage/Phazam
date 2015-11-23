@@ -1,6 +1,6 @@
 .row
   .col-md-8
     = link_to @image.large_url do
-      = image_tag @image.large_url, :class => "singleImage fitWidth"
+      = image_tag @image.large_url, class: "singleImage fitWidth"
   .col-md-4
     = render 'challenge_answers', {challenge: @challenge, image: @image}

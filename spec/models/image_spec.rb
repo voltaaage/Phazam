@@ -3,8 +3,7 @@ require 'rails_helper'
 describe Images do
   describe '#self.flickr_images_from_today' do
     it 'returns an array of images' do
-      images = Image.flickr_images_from_today(40)
-      puts images
+      images = Image.flickr_images_from_today(25)
       expect(images).to be_an_instance_of(Array)
       expect(images.first).to be_an_instance_of(Image)
       expect(images.last).to be_an_instance_of(Image)
