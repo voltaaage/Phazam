@@ -39,9 +39,9 @@ describe Challenge do
     end
 
     it 'should update focal_length_correct to true if it is correct' do
-      # @correct_challenge.attribute_scoring
+      @correct_challenge.attribute_scoring
 
-      expect(@correct_challenge.focal_length_correct).to be_truthy
+      expect(@correct_challenge.exposure_correct).to be_truthy
     end
 
     it 'should return a score of 4 for correct challenge' do

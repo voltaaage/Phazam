@@ -60,7 +60,7 @@ class Challenge < ActiveRecord::Base
 
   def overall_scoring
     score = 0
-    [focal_length_correct,exposure_correct,aperture_correct,iso_speed_correct].each do |attribute_correct|
+    [correct_focal_length_guess,correct_exposure_guess,correct_aperture_guess,correct_iso_speed_guess].each do |attribute_correct|
       score = score + 1 if attribute_correct
     end
     score
