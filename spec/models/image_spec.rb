@@ -9,10 +9,16 @@ describe Images do
       expect(images.last).to be_an_instance_of(Image)
     end
 
-    xit 'does not call #create_image_array_from_interesting_photos if existing images from today exist' do
-      image = Image.new(created_at: Time.now.midnight + 1.hour)
+    it 'does include images created after midnight' do
+      image = Image.create(created_at: Time.now.midnight + 1.hour)
 
-      expect(Image.flickr_images_from_today(10)).not_to receive(:process_flickr_info)
+      expect(Image.flickr_images_from_today(10)).to eq([image])
+    end
+
+    it 'does not include images created before midnight' do
+      image = Image.create(created_at: Time.now.midnight - 1.hour)
+
+      expect(Image.flickr_images_from_today(10)).not_to include(image)
     end
   end
 
@@ -33,11 +39,6 @@ describe Images do
       image = Image.new
 
       expect(image.all_data_available).to be_falsy
-    end
-  end
-
-  describe '#process_flickr_info' do
-    xit '' do
     end
   end
 end

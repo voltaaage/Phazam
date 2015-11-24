@@ -7,11 +7,6 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
   end
 
-  def update
-    @image = Image.find(params[:id])
-    @image.update_attributes(image_params)
-  end
-
   private
 
   def image_params

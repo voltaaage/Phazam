@@ -32,12 +32,6 @@ describe Challenge do
       )
     end
 
-    xit 'should call attribute_scoring after creation' do
-      expect(@correct_challenge).to receive(:attribute_scoring)
-
-      @correct_challenge.run_callbacks(:create) {true}
-    end
-
     it 'should update focal_length_correct to true if it is correct' do
       @correct_challenge.attribute_scoring
 

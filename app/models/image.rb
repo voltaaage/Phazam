@@ -1,11 +1,11 @@
 class Image < ActiveRecord::Base
-has_many :challenges
+  has_many :challenges
 
   # Helps prevent multiple api calls in the same day
   def self.flickr_images_from_today(per_page)
     images = Image.where({ created_at: (Time.now.midnight)..(Time.now.midnight + 1.day)}).to_a
     if images.length == 0
-      images = Image.create_image_array_from_interesting_photos(per_page) #if images.length == 0
+      images = Image.create_image_array_from_interesting_photos(per_page)
     end
     images
   end
@@ -14,19 +14,12 @@ has_many :challenges
     focal_length != nil && exposure != nil && aperture != nil && iso_speed != nil
   end
 
-  def process_flickr_info(api_key,photo_id)
-    general_info(api_key,photo_id)
-    exif_data(api_key,photo_id)
-  end
-
   private
 
   def self.create_image_array_from_interesting_photos(per_page)
     images = []
     flickr.interestingness.getList(api_key: ENV['FLICKR_KEY'], per_page: per_page).each do |photo|
-      # image = nil
       image = Image.find{ |x| x.photo_id == photo.id}
-      # image = Image.find{ |x| x.id == 99999 }
       image = process_image(ENV['FLICKR_KEY'],photo) if image == nil
       images << image if image.all_data_available
     end
@@ -35,14 +28,18 @@ has_many :challenges
 
   def self.process_image(api_key,photo)
     image = Image.new
-    image.process_flickr_info(api_key,photo.id)
+    process_flickr_info(api_key,photo.id,image)
     image
   end
 
+  def self.process_flickr_info(api_key,photo_id,image)
+    general_info(api_key,photo_id,image)
+    exif_data(api_key,photo_id,image)
+  end
 
-  def general_info(api_key,photo_id)
+  def self.general_info(api_key,photo_id,image)
     info = flickr.photos.getInfo(photo_id: photo_id)
-    update_attributes(
+    image.update_attributes(
       photo_id: photo_id,
       title: info.title,
       medium_url: FlickRaw.url_m(info),
@@ -50,13 +47,13 @@ has_many :challenges
     )
   end
 
-  def exif_data(api_key,photo_id)
+  def self.exif_data(api_key,photo_id,image)
     begin
       exif = flickr.photos.getExif(api_key: api_key, photo_id: photo_id).exif
     rescue
       return nil
     end
-    update_attributes(
+    image.update_attributes(
       focal_length: parse_exif_data(exif,"Focal Length","clean"),
       exposure: parse_exif_data(exif,"Exposure","clean"),
       aperture: parse_exif_data(exif,"Aperture","clean"),
@@ -64,7 +61,7 @@ has_many :challenges
     )
   end
 
-  def parse_exif_data(exif,label,content)
+  def self.parse_exif_data(exif,label,content)
     exif_data = exif.select{|x| x["label"] == label}.first
     return nil if exif_data == nil
     exif_data.to_hash[content]

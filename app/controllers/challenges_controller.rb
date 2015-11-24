@@ -13,7 +13,7 @@ class ChallengesController < ApplicationController
   end
 
   def create
-    challenge = Challenge.create(challenge_params)
+    challenge = Challenge.new(challenge_params)
     challenge.user = current_user if current_user
     if challenge.save
       challenge.attribute_scoring
