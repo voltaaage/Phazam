@@ -66,5 +66,4 @@ class Image < ActiveRecord::Base
     return nil if exif_data == nil
     exif_data.to_hash[content]
   end
-
 end
