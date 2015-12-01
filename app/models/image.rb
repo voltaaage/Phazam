@@ -3,7 +3,7 @@ class Image < ActiveRecord::Base
 
   # Helps prevent multiple api calls in the same day
   def self.flickr_images_from_today(per_page)
-    images = Image.where({ created_at: (Time.now.midnight)..(Time.now.midnight + 1.day)}).to_a
+    images = Image.where({ created_at: (Time.now.midnight)..(Time.now.midnight + 1.day)}).to_a.select{|x| x.all_data_available}
     if images.length == 0
       images = Image.create_image_array_from_interesting_photos(per_page)
     end

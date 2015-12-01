@@ -3,7 +3,7 @@ describe Challenge do
 
   describe 'attribute_scoring' do
     before do
-      @image = Image.new(
+      @image = Image.create(
         focal_length: "35mm",
         exposure: "0.01 sec",
         aperture: "f/2.8",

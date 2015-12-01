@@ -7,8 +7,4 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @challenges = Challenge.select{|x| x.user_id == @user.id}
   end
-
-  def edit
-    @user = User.find(params[:id])
-  end
 end
