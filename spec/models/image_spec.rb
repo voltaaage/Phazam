@@ -10,7 +10,13 @@ describe Images do
     end
 
     it 'does include images created after midnight' do
-      image = Image.create(created_at: Time.now.midnight + 1.hour)
+      image = @image = Image.create(
+        focal_length: "35mm",
+        exposure: "0.01 sec",
+        aperture: "f/2.8",
+        iso_speed: "300",
+        created_at: Time.now.midnight + 1.hour
+      )
 
       expect(Image.flickr_images_from_today(10)).to eq([image])
     end
@@ -18,7 +24,24 @@ describe Images do
     it 'does not include images created before midnight' do
       image = Image.create(created_at: Time.now.midnight - 1.hour)
 
-      expect(Image.flickr_images_from_today(10)).not_to include(image)
+      expect(Image.flickr_images_from_today(3)).not_to include(image)
+    end
+
+    it 'only includes images where all exif data is available from the API' do
+      expect(Image.flickr_images_from_today(3).select!{|x| x.all_data_available == false}.length).to eq(0)
+    end
+
+    it 'only includes images where all exif data is available from the database' do
+      image1 = Image.create(created_at: Time.now.midnight + 1.hour)
+      image2 = @image = Image.create(
+        focal_length: "35mm",
+        exposure: "0.01 sec",
+        aperture: "f/2.8",
+        iso_speed: "300",
+        created_at: Time.now.midnight + 1.hour
+      )
+
+      expect(Image.flickr_images_from_today(3).select!{|x| x.all_data_available == false}.length).to eq(0)
     end
   end
 
