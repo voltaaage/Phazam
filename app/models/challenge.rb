@@ -78,7 +78,7 @@ class Challenge < ActiveRecord::Base
   end
 
   def self.possible_iso_speeds
-    [50,100,200,400,800,1600,3200,6400,12800,25600,51200,65536]
+    [50,100,125,160,200,250,320,400,500,640,800,1000,1250,1600,2000,2500,3200,4000,5000,6400,8000,10000,12800,16000,20000,25600,51200,65536]
   end
 
   def self.focal_length_options(image,number_of_choices)

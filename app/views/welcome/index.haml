@@ -1,14 +1,105 @@
-.container-fluid
-  .jumbotron
-    %h1 Phazam
-    %p Phazam is a resource to gauge your ability to recognize how a photo was taken. Test your skills. Set your sights on the top of the ladder.
-  .row
-    .col-md-4
-      %h2 Test your skills
-      %p Choose the corect aperture, shutter speed, and focal length that a photo was taken.
-    .col-md-4
-      %h2 Gain points for accuracy
-      %p Each correct answer will build your overall skill level.
-    .col-md-4
-      %h2 Do you think you're better than the rest?
-      %p Then prove it. Make it to the top of the ladder.
+%header
+  .header-content
+    .header-content-inner
+      %h1 Your Favorite Source of Free Bootstrap Themes
+      %hr
+        %p Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!
+        %a.btn.btn-primary.btn-xl.page-scroll{:href => "#about"} Find Out More
+%section#about.bg-primary
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.text-center
+        %h2.section-heading We've got what you need!
+        %hr.light
+          %p.text-faded Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!
+          %a.btn.btn-default.btn-xl{:href => "#"} Get Started!
+%section#services
+  .container
+    .row
+      .col-lg-12.text-center
+        %h2.section-heading At Your Service
+        %hr.primary
+  .container
+    .row
+      .col-lg-3.col-md-6.text-center
+        .service-box
+          %i.fa.fa-4x.fa-diamond.wow.bounceIn.text-primary
+          %h3 Sturdy Templates
+          %p.text-muted Our templates are updated regularly so they don't break.
+      .col-lg-3.col-md-6.text-center
+        .service-box
+          %i.fa.fa-4x.fa-paper-plane.wow.bounceIn.text-primary{"data-wow-delay" => ".1s"}
+          %h3 Ready to Ship
+          %p.text-muted You can use this theme as is, or you can make changes!
+      .col-lg-3.col-md-6.text-center
+        .service-box
+          %i.fa.fa-4x.fa-newspaper-o.wow.bounceIn.text-primary{"data-wow-delay" => ".2s"}
+          %h3 Up to Date
+          %p.text-muted We update dependencies to keep things fresh.
+      .col-lg-3.col-md-6.text-center
+        .service-box
+          %i.fa.fa-4x.fa-heart.wow.bounceIn.text-primary{"data-wow-delay" => ".3s"}
+          %h3 Made with Love
+          %p.text-muted You have to make your websites with love these days!
+%section#portfolio.no-padding
+  .container-fluid
+    .row.no-gutter
+      .col-lg-4.col-sm-6
+        %a.portfolio-box{:href => "#"}
+          %img{:alt => "", :class => "/startbootstrap/img-responsive", :src => "/startbootstrap/img/portfolio/1.jpg"}
+            .portfolio-box-caption
+              .portfolio-box-caption-content
+                .project-category.text-faded
+                  Category
+                .project-name
+                  Project Name
+      .col-lg-4.col-sm-6
+        %a.portfolio-box{:href => "#"}
+          %img{:alt => "", :class => "/startbootstrap/img-responsive", :src => "/startbootstrap/img/portfolio/2.jpg"}
+            .portfolio-box-caption
+              .portfolio-box-caption-content
+                .project-category.text-faded
+                  Category
+                .project-name
+                  Project Name
+      .col-lg-4.col-sm-6
+        %a.portfolio-box{:href => "#"}
+          %img{:alt => "", :class => "/startbootstrap/img-responsive", :src => "/startbootstrap/img/portfolio/3.jpg"}
+            .portfolio-box-caption
+              .portfolio-box-caption-content
+                .project-category.text-faded
+                  Category
+                .project-name
+                  Project Name
+      .col-lg-4.col-sm-6
+        %a.portfolio-box{:href => "#"}
+          %img{:alt => "", :class => "/startbootstrap/img-responsive", :src => "/startbootstrap/img/portfolio/4.jpg"}
+            .portfolio-box-caption
+              .portfolio-box-caption-content
+                .project-category.text-faded
+                  Category
+                .project-name
+                  Project Name
+      .col-lg-4.col-sm-6
+        %a.portfolio-box{:href => "#"}
+          %img{:alt => "", :class => "/startbootstrap/img-responsive", :src => "/startbootstrap/img/portfolio/5.jpg"}
+            .portfolio-box-caption
+              .portfolio-box-caption-content
+                .project-category.text-faded
+                  Category
+                .project-name
+                  Project Name
+      .col-lg-4.col-sm-6
+        %a.portfolio-box{:href => "#"}
+          %img{:alt => "", :class => "/startbootstrap/img-responsive", :src => "/startbootstrap/img/portfolio/6.jpg"}
+            .portfolio-box-caption
+              .portfolio-box-caption-content
+                .project-category.text-faded
+                  Category
+                .project-name
+                  Project Name
+%aside.bg-dark
+  .container.text-center
+    .call-to-action
+      %h2 Free Download at Start Bootstrap!
+      %a.btn.btn-default.btn-xl.wow.tada{:href => "#"} Download Now!
