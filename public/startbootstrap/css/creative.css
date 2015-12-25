@@ -16,7 +16,7 @@ body {
 
 hr {
     max-width: 50px;
-    border-color: rgb(240,95,64);
+    border-color: #f05f40;
     border-width: 3px;
 }
 
@@ -25,7 +25,7 @@ hr.light {
 }
 
 a {
-    color: rgb(240,95,64);
+    color: #f05f40;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -98,7 +98,7 @@ aside {
     text-transform: uppercase;
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
     font-weight: 700;
-    color: rgb(240,95,64);
+    color: #f05f40;
 }
 
 .navbar-default .navbar-header .navbar-brand:hover,
@@ -116,12 +116,12 @@ aside {
 
 .navbar-default .nav > li>a:hover,
 .navbar-default .nav>li>a:focus:hover {
-    color: rgb(240,95,64);
+    color: #f05f40;
 }
 
 .navbar-default .nav > li.active>a,
 .navbar-default .nav>li.active>a:focus {
-    color: rgb(240,95,64)!important;
+    color: #f05f40!important;
     background-color: transparent;
 }
 
@@ -163,12 +163,12 @@ aside {
 
     .navbar-default.affix .navbar-header .navbar-brand {
         font-size: 14px;
-        color: rgb(255,255,0);
+        color: rgba(255,255,0,.7); / logo
     }
 
     .navbar-default.affix .navbar-header .navbar-brand:hover,
     .navbar-default.affix .navbar-header .navbar-brand:focus {
-        color: rgb(255,255,0);
+        color: #eb3812;
     }
 
     .navbar-default.affix .nav > li>a,
@@ -178,7 +178,7 @@ aside {
 
     .navbar-default.affix .nav > li>a:hover,
     .navbar-default.affix .nav>li>a:focus:hover {
-        color: rgb(255,255,0);
+        color: #f05f40;
     }
 }
 
@@ -338,7 +338,7 @@ header .header-content .header-content-inner p {
 }
 
 .text-primary {
-    color: rgb(255,255,0);
+    color: #f05f40;
 }
 
 .no-gutter > [class*=col-] {
@@ -400,9 +400,9 @@ fieldset[disabled] .btn-default.active {
 }
 
 .btn-primary {
-    border-color: rgb(240,95,64);
+    border-color: #f05f40;
     color: #fff;
-    background-color: rgb(240,95,64);
+    background-color: #f05f40;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -443,12 +443,12 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-    border-color: rgb(240,95,64);
-    background-color: rgb(240,95,64);
+    border-color: #f05f40;
+    background-color: #f05f40;
 }
 
 .btn-primary .badge {
-    color: rgb(240,95,64);
+    color: #f05f40;
     background-color: #fff;
 }
 
