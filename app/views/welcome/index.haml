@@ -13,7 +13,7 @@
           %hr.light
             %p.text-faded Phazam uses the Flickr API to retrieve top photos from the day and displays the image along with its EXIF data. You'll be able to easily view the technical details behind how a photo was created!
             %a.btn.btn-default.btn-xl{:href => new_user_registration_path} Get Started!
-  %section#services
+  %section#features
     .container
       .row
         .col-lg-12.text-center
@@ -23,78 +23,26 @@
       .row
         .col-lg-3.col-md-6.text-center
           .service-box
-            %i.fa.fa-4x.fa-diamond.wow.bounceIn.text-primary
+            %i.fa.fa-4x.fa-photo.wow.bounceIn.text-primary
             %h3 View Photos
             %p.text-muted Interesting photos are uploaded to Flickr everyday. View them easily here!
         .col-lg-3.col-md-6.text-center
           .service-box
-            %i.fa.fa-4x.fa-paper-plane.wow.bounceIn.text-primary{"data-wow-delay" => ".1s"}
+            %i.fa.fa-4x.fa-paper-plane.wow.bounceIn.text-primary{"data-wow-delay" => ".3s"}
             %h3 Hover to Discover
             %p.text-muted An easy to use format allows you to view an image and quickly see its EXIF attributes
         .col-lg-3.col-md-6.text-center
           .service-box
-            %i.fa.fa-4x.fa-newspaper-o.wow.bounceIn.text-primary{"data-wow-delay" => ".2s"}
+            %i.fa.fa-4x.fa-diamond.wow.bounceIn.text-primary{"data-wow-delay" => ".6s"}
             %h3 Challenge Yourself
             %p.text-muted Test your photography skills. Can you guess the correct attributes?
         .col-lg-3.col-md-6.text-center
           .service-box
-            %i.fa.fa-4x.fa-heart.wow.bounceIn.text-primary{"data-wow-delay" => ".3s"}
+            %i.fa.fa-4x.fa-heart.wow.bounceIn.text-primary{"data-wow-delay" => ".9s"}
             %h3 Get Started
             %p.text-muted= link_to "Create an account and explore!", new_user_registration_path
   %section#portfolio.no-padding
     .container-fluid
       .row.no-gutter
-        .col-lg-4.col-sm-6
-          %a.portfolio-box{:href => "#"}
-            %img{:alt => "", :class => "/startbootstrap/img-responsive", :src => "/startbootstrap/img/portfolio/1.jpg"}
-              .portfolio-box-caption
-                .portfolio-box-caption-content
-                  .project-category.text-faded
-                    Category
-                  .project-name
-                    Project Name
-        .col-lg-4.col-sm-6
-          %a.portfolio-box{:href => "#"}
-            %img{:alt => "", :class => "/startbootstrap/img-responsive", :src => "/startbootstrap/img/portfolio/2.jpg"}
-              .portfolio-box-caption
-                .portfolio-box-caption-content
-                  .project-category.text-faded
-                    Category
-                  .project-name
-                    Project Name
-        .col-lg-4.col-sm-6
-          %a.portfolio-box{:href => "#"}
-            %img{:alt => "", :class => "/startbootstrap/img-responsive", :src => "/startbootstrap/img/portfolio/3.jpg"}
-              .portfolio-box-caption
-                .portfolio-box-caption-content
-                  .project-category.text-faded
-                    Category
-                  .project-name
-                    Project Name
-        .col-lg-4.col-sm-6
-          %a.portfolio-box{:href => "#"}
-            %img{:alt => "", :class => "/startbootstrap/img-responsive", :src => "/startbootstrap/img/portfolio/4.jpg"}
-              .portfolio-box-caption
-                .portfolio-box-caption-content
-                  .project-category.text-faded
-                    Category
-                  .project-name
-                    Project Name
-        .col-lg-4.col-sm-6
-          %a.portfolio-box{:href => "#"}
-            %img{:alt => "", :class => "/startbootstrap/img-responsive", :src => "/startbootstrap/img/portfolio/5.jpg"}
-              .portfolio-box-caption
-                .portfolio-box-caption-content
-                  .project-category.text-faded
-                    Category
-                  .project-name
-                    Project Name
-        .col-lg-4.col-sm-6
-          %a.portfolio-box{:href => "#"}
-            %img{:alt => "", :class => "/startbootstrap/img-responsive", :src => "/startbootstrap/img/portfolio/6.jpg"}
-              .portfolio-box-caption
-                .portfolio-box-caption-content
-                  .project-category.text-faded
-                    Category
-                  .project-name
-                    Project Name
+        - @images.each do |image|
+          = render 'images/image', {image: image, link: image}
