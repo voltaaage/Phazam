@@ -1,21 +1,23 @@
-.row
-  .col-md-8
-    = link_to @image.large_url do
-      = image_tag @image.large_url, class: "singleImage fitWidth"
-  .col-md-4
-    %h3= @image.title
-    %row
-      %b Focal Length:
-      = @image.focal_length
-    %br
-    %row
-      %b Exposure:
-      = @image.exposure
-    %br
-    %row
-      %b Aperture:
-      = @image.aperture
-    %br
-    %row
-      %b ISO Speed:
-      = @image.iso_speed
+%section#show_image
+  .container
+    .row
+      .col-md-8
+        = link_to @image.large_url do
+          = image_tag @image.large_url, class: "singleImage fitWidth"
+      .col-md-4
+        %h3= @image.title
+        %row
+          %b Focal Length:
+          = @image.focal_length
+        %br
+        %row
+          %b Exposure:
+          = @image.exposure
+        %br
+        %row
+          %b Aperture:
+          = @image.aperture
+        %br
+        %row
+          %b ISO Speed:
+          = @image.iso_speed

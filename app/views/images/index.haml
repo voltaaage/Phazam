@@ -1,6 +1,11 @@
-.container-fluid
-  %h3{class: "text-center"} Interesting Photos of Today (from Flickr)
-  %p{class: "text-center"} Use these fresh new photos from Flickr to practice before your challenge! Hover over an image to view the EXIF data for that photo.
-%ul.rig.columns-3
-  - @images.each do |image|
-    %li= render 'image', {image: image, link: image}
+%section#images_title.bg-primary
+  .container
+    .col-lg-8.col-lg-offset-2.text-center
+      %h2.section-heading Interesting Photos of Today (from Flickr)
+      %hr.light
+        %p.text-faded Use these fresh new photos from Flickr to practice before your challenge! Hover over an image to view the EXIF data for that photo.
+%section#portfolio.no-padding
+  .container-fluid
+    .row.no-gutter
+      - @images.each do |image|
+        = render 'image', {image: image, link: image}

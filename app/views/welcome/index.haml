@@ -1,105 +1,100 @@
-%header
-  .header-content
-    .header-content-inner
-      %h1 Your Favorite Source of Free Bootstrap Themes
-      %hr
-        %p Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!
-        %a.btn.btn-primary.btn-xl.page-scroll{:href => "#about"} Find Out More
-%section#about.bg-primary
-  .container
-    .row
-      .col-lg-8.col-lg-offset-2.text-center
-        %h2.section-heading We've got what you need!
-        %hr.light
-          %p.text-faded Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!
-          %a.btn.btn-default.btn-xl{:href => "#"} Get Started!
-%section#services
-  .container
-    .row
-      .col-lg-12.text-center
-        %h2.section-heading At Your Service
-        %hr.primary
-  .container
-    .row
-      .col-lg-3.col-md-6.text-center
-        .service-box
-          %i.fa.fa-4x.fa-diamond.wow.bounceIn.text-primary
-          %h3 Sturdy Templates
-          %p.text-muted Our templates are updated regularly so they don't break.
-      .col-lg-3.col-md-6.text-center
-        .service-box
-          %i.fa.fa-4x.fa-paper-plane.wow.bounceIn.text-primary{"data-wow-delay" => ".1s"}
-          %h3 Ready to Ship
-          %p.text-muted You can use this theme as is, or you can make changes!
-      .col-lg-3.col-md-6.text-center
-        .service-box
-          %i.fa.fa-4x.fa-newspaper-o.wow.bounceIn.text-primary{"data-wow-delay" => ".2s"}
-          %h3 Up to Date
-          %p.text-muted We update dependencies to keep things fresh.
-      .col-lg-3.col-md-6.text-center
-        .service-box
-          %i.fa.fa-4x.fa-heart.wow.bounceIn.text-primary{"data-wow-delay" => ".3s"}
-          %h3 Made with Love
-          %p.text-muted You have to make your websites with love these days!
-%section#portfolio.no-padding
-  .container-fluid
-    .row.no-gutter
-      .col-lg-4.col-sm-6
-        %a.portfolio-box{:href => "#"}
-          %img{:alt => "", :class => "/startbootstrap/img-responsive", :src => "/startbootstrap/img/portfolio/1.jpg"}
-            .portfolio-box-caption
-              .portfolio-box-caption-content
-                .project-category.text-faded
-                  Category
-                .project-name
-                  Project Name
-      .col-lg-4.col-sm-6
-        %a.portfolio-box{:href => "#"}
-          %img{:alt => "", :class => "/startbootstrap/img-responsive", :src => "/startbootstrap/img/portfolio/2.jpg"}
-            .portfolio-box-caption
-              .portfolio-box-caption-content
-                .project-category.text-faded
-                  Category
-                .project-name
-                  Project Name
-      .col-lg-4.col-sm-6
-        %a.portfolio-box{:href => "#"}
-          %img{:alt => "", :class => "/startbootstrap/img-responsive", :src => "/startbootstrap/img/portfolio/3.jpg"}
-            .portfolio-box-caption
-              .portfolio-box-caption-content
-                .project-category.text-faded
-                  Category
-                .project-name
-                  Project Name
-      .col-lg-4.col-sm-6
-        %a.portfolio-box{:href => "#"}
-          %img{:alt => "", :class => "/startbootstrap/img-responsive", :src => "/startbootstrap/img/portfolio/4.jpg"}
-            .portfolio-box-caption
-              .portfolio-box-caption-content
-                .project-category.text-faded
-                  Category
-                .project-name
-                  Project Name
-      .col-lg-4.col-sm-6
-        %a.portfolio-box{:href => "#"}
-          %img{:alt => "", :class => "/startbootstrap/img-responsive", :src => "/startbootstrap/img/portfolio/5.jpg"}
-            .portfolio-box-caption
-              .portfolio-box-caption-content
-                .project-category.text-faded
-                  Category
-                .project-name
-                  Project Name
-      .col-lg-4.col-sm-6
-        %a.portfolio-box{:href => "#"}
-          %img{:alt => "", :class => "/startbootstrap/img-responsive", :src => "/startbootstrap/img/portfolio/6.jpg"}
-            .portfolio-box-caption
-              .portfolio-box-caption-content
-                .project-category.text-faded
-                  Category
-                .project-name
-                  Project Name
-%aside.bg-dark
-  .container.text-center
-    .call-to-action
-      %h2 Free Download at Start Bootstrap!
-      %a.btn.btn-default.btn-xl.wow.tada{:href => "#"} Download Now!
+%body#page-top
+  %header
+    .header-content
+      .header-content-inner
+        %h1 Phazam
+        %hr
+          %a.btn.btn-primary.btn-xl.page-scroll{:href => "#about"} Find Out More
+  %section#about.bg-primary
+    .container
+      .row
+        .col-lg-8.col-lg-offset-2.text-center
+          %h2.section-heading Learn from other photos on Flickr!
+          %hr.light
+            %p.text-faded Phazam uses the Flickr API to retrieve top photos from the day and displays the image along with its EXIF data. You'll be able to easily view the technical details behind how a photo was created!
+            %a.btn.btn-default.btn-xl{:href => new_user_registration_path} Get Started!
+  %section#services
+    .container
+      .row
+        .col-lg-12.text-center
+          %h2.section-heading Phazam Features
+          %hr.primary
+    .container
+      .row
+        .col-lg-3.col-md-6.text-center
+          .service-box
+            %i.fa.fa-4x.fa-diamond.wow.bounceIn.text-primary
+            %h3 View Photos
+            %p.text-muted Interesting photos are uploaded to Flickr everyday. View them easily here!
+        .col-lg-3.col-md-6.text-center
+          .service-box
+            %i.fa.fa-4x.fa-paper-plane.wow.bounceIn.text-primary{"data-wow-delay" => ".1s"}
+            %h3 Hover to Discover
+            %p.text-muted An easy to use format allows you to view an image and quickly see its EXIF attributes
+        .col-lg-3.col-md-6.text-center
+          .service-box
+            %i.fa.fa-4x.fa-newspaper-o.wow.bounceIn.text-primary{"data-wow-delay" => ".2s"}
+            %h3 Challenge Yourself
+            %p.text-muted Test your photography skills. Can you guess the correct attributes?
+        .col-lg-3.col-md-6.text-center
+          .service-box
+            %i.fa.fa-4x.fa-heart.wow.bounceIn.text-primary{"data-wow-delay" => ".3s"}
+            %h3 Get Started
+            %p.text-muted= link_to "Create an account and explore!", new_user_registration_path
+  %section#portfolio.no-padding
+    .container-fluid
+      .row.no-gutter
+        .col-lg-4.col-sm-6
+          %a.portfolio-box{:href => "#"}
+            %img{:alt => "", :class => "/startbootstrap/img-responsive", :src => "/startbootstrap/img/portfolio/1.jpg"}
+              .portfolio-box-caption
+                .portfolio-box-caption-content
+                  .project-category.text-faded
+                    Category
+                  .project-name
+                    Project Name
+        .col-lg-4.col-sm-6
+          %a.portfolio-box{:href => "#"}
+            %img{:alt => "", :class => "/startbootstrap/img-responsive", :src => "/startbootstrap/img/portfolio/2.jpg"}
+              .portfolio-box-caption
+                .portfolio-box-caption-content
+                  .project-category.text-faded
+                    Category
+                  .project-name
+                    Project Name
+        .col-lg-4.col-sm-6
+          %a.portfolio-box{:href => "#"}
+            %img{:alt => "", :class => "/startbootstrap/img-responsive", :src => "/startbootstrap/img/portfolio/3.jpg"}
+              .portfolio-box-caption
+                .portfolio-box-caption-content
+                  .project-category.text-faded
+                    Category
+                  .project-name
+                    Project Name
+        .col-lg-4.col-sm-6
+          %a.portfolio-box{:href => "#"}
+            %img{:alt => "", :class => "/startbootstrap/img-responsive", :src => "/startbootstrap/img/portfolio/4.jpg"}
+              .portfolio-box-caption
+                .portfolio-box-caption-content
+                  .project-category.text-faded
+                    Category
+                  .project-name
+                    Project Name
+        .col-lg-4.col-sm-6
+          %a.portfolio-box{:href => "#"}
+            %img{:alt => "", :class => "/startbootstrap/img-responsive", :src => "/startbootstrap/img/portfolio/5.jpg"}
+              .portfolio-box-caption
+                .portfolio-box-caption-content
+                  .project-category.text-faded
+                    Category
+                  .project-name
+                    Project Name
+        .col-lg-4.col-sm-6
+          %a.portfolio-box{:href => "#"}
+            %img{:alt => "", :class => "/startbootstrap/img-responsive", :src => "/startbootstrap/img/portfolio/6.jpg"}
+              .portfolio-box-caption
+                .portfolio-box-caption-content
+                  .project-category.text-faded
+                    Category
+                  .project-name
+                    Project Name

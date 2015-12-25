@@ -1,18 +1,19 @@
-.imgWrap
-  = image_tag image.large_url
-  .imgContainer
-    .imgDescription
-      .row
-        %h4= link_to(image.title,link)
-      .row
-        %b Focal Length:
-        = image.focal_length
-      .row
-        %b Exposure:
-        = image.exposure
-      .row
-        %b Aperture:
-        = image.aperture
-      .row
-        %b ISO Speed:
-        = image.iso_speed
+.col-lg-4.col-sm-6
+  .portfolio-box
+    %img{:alt => image.title, :class => "/startbootstrap/img-responsive", :src => image.large_url}
+      .portfolio-box-caption
+        .portfolio-box-caption-content
+          .project-name
+            = link_to(image.title,link)
+          .project-category.text-faded
+            Focal Length:
+            = image.focal_length
+          .project-category.text-faded
+            Exposure:
+            = image.exposure
+          .project-category.text-faded
+            Aperture:
+            = image.aperture
+          .project-category.text-faded
+            ISO Speed:
+            = image.iso_speed

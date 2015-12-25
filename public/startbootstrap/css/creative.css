@@ -16,7 +16,7 @@ body {
 
 hr {
     max-width: 50px;
-    border-color: #f05f40;
+    border-color: rgb(240,95,64);
     border-width: 3px;
 }
 
@@ -25,7 +25,7 @@ hr.light {
 }
 
 a {
-    color: #f05f40;
+    color: rgb(240,95,64);
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -45,6 +45,11 @@ h6 {
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
 }
 
+img {
+    width: 100%;
+    height: 100%;
+}
+
 p {
     margin-bottom: 20px;
     font-size: 16px;
@@ -52,7 +57,7 @@ p {
 }
 
 .bg-primary {
-    background-color: #f05f40;
+    background-color: rgb(95,95,175);
 }
 
 .bg-dark {
@@ -66,6 +71,10 @@ p {
 
 section {
     padding: 100px 0;
+}
+
+.page-begin {
+    padding-top: 50px;
 }
 
 aside {
@@ -89,7 +98,7 @@ aside {
     text-transform: uppercase;
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
     font-weight: 700;
-    color: #f05f40;
+    color: rgb(240,95,64);
 }
 
 .navbar-default .navbar-header .navbar-brand:hover,
@@ -107,12 +116,12 @@ aside {
 
 .navbar-default .nav > li>a:hover,
 .navbar-default .nav>li>a:focus:hover {
-    color: #f05f40;
+    color: rgb(240,95,64);
 }
 
 .navbar-default .nav > li.active>a,
 .navbar-default .nav>li.active>a:focus {
-    color: #f05f40!important;
+    color: rgb(240,95,64)!important;
     background-color: transparent;
 }
 
@@ -124,11 +133,12 @@ aside {
 @media(min-width:768px) {
     .navbar-default {
         border-color: rgba(255,255,255,.3);
-        background-color: transparent;
+        background-color: rgba(128,128,128,0.9); /navbar background
+        margin: 10px
     }
 
     .navbar-default .navbar-header .navbar-brand {
-        color: rgba(255,255,255,.7);
+        color: rgba(255,255,0,.7);  / yellow
     }
 
     .navbar-default .navbar-header .navbar-brand:hover,
@@ -148,17 +158,17 @@ aside {
 
     .navbar-default.affix {
         border-color: rgba(34,34,34,.05);
-        background-color: #fff;
+        background-color: rgba(192,192,192,0.6); / bg when scrolling
     }
 
     .navbar-default.affix .navbar-header .navbar-brand {
         font-size: 14px;
-        color: #f05f40;
+        color: rgb(255,255,0);
     }
 
     .navbar-default.affix .navbar-header .navbar-brand:hover,
     .navbar-default.affix .navbar-header .navbar-brand:focus {
-        color: #eb3812;
+        color: rgb(255,255,0);
     }
 
     .navbar-default.affix .nav > li>a,
@@ -168,7 +178,7 @@ aside {
 
     .navbar-default.affix .nav > li>a:hover,
     .navbar-default.affix .nav>li>a:focus:hover {
-        color: #f05f40;
+        color: rgb(255,255,0);
     }
 }
 
@@ -262,7 +272,10 @@ header .header-content .header-content-inner p {
     display: block;
     position: relative;
     margin: 0 auto;
+    height: auto;
+    width: 100%;
     max-width: 650px;
+    max-height: 350px;
 }
 
 .portfolio-box .portfolio-box-caption {
@@ -274,7 +287,7 @@ header .header-content .header-content-inner p {
     text-align: center;
     color: #fff;
     opacity: 0;
-    background: rgba(240,95,64,.9);
+    background: rgba(0,0,0,.8);
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -292,6 +305,8 @@ header .header-content .header-content-inner p {
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
     padding: 0 15px;
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+    text-align: left;
+    margin-left: 15%;
 }
 
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
@@ -323,7 +338,7 @@ header .header-content .header-content-inner p {
 }
 
 .text-primary {
-    color: #f05f40;
+    color: rgb(255,255,0);
 }
 
 .no-gutter > [class*=col-] {
@@ -385,9 +400,9 @@ fieldset[disabled] .btn-default.active {
 }
 
 .btn-primary {
-    border-color: #f05f40;
+    border-color: rgb(240,95,64);
     color: #fff;
-    background-color: #f05f40;
+    background-color: rgb(240,95,64);
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -428,12 +443,12 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-    border-color: #f05f40;
-    background-color: #f05f40;
+    border-color: rgb(240,95,64);
+    background-color: rgb(240,95,64);
 }
 
 .btn-primary .badge {
-    color: #f05f40;
+    color: rgb(240,95,64);
     background-color: #fff;
 }
 
