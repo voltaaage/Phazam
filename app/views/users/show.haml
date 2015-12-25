@@ -1,12 +1,29 @@
-%h3= @user.name
-%br
-%p= "Focal Length: #{@user.correct_focal_length_guesses} / #{@user.total_number_of_challenges}"
-%p= "Exposure: #{@user.correct_exposure_guesses} / #{@user.total_number_of_challenges}"
-%p= "Aperture: #{@user.correct_aperture_guesses} / #{@user.total_number_of_challenges}"
-%p= "ISO Speed: #{@user.correct_iso_speed_guesses} / #{@user.total_number_of_challenges}"
-%p= "Overall Accuracy: #{@user.total_correct_guesses} / #{@user.total_guesses}"
-%br
-%p Here is a list of your recent challenges and how you fared
-%ul.rig.columns-3
-  - @challenges.each do |challenge|
-    %li= render "/challenges/challenge_image", {challenge: challenge, image: Image.find(challenge.image_id), link: challenge}
+%header#header-challenge
+  .header-content
+    .header-content-inner
+      %h1= @user.name
+      %hr
+        .row
+          .col-lg-3.text-center
+            %p= "Focal Length: #{@user.correct_focal_length_guesses} / #{@user.total_number_of_challenges}"
+          .col-lg-3.text-center
+            %p= "Exposure: #{@user.correct_exposure_guesses} / #{@user.total_number_of_challenges}"
+          .col-lg-3.text-center
+            %p= "Aperture: #{@user.correct_aperture_guesses} / #{@user.total_number_of_challenges}"
+          .col-lg-3.text-center
+            %p= "ISO Speed: #{@user.correct_iso_speed_guesses} / #{@user.total_number_of_challenges}"
+        .row
+          .col-lg-12.text-center
+            %p= "Overall Accuracy: #{@user.total_correct_guesses} / #{@user.total_guesses}"
+%section#about.bg-primary
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.text-center
+        %h2.section-heading Recent Challenges
+        %hr.light
+          %p.text-faded Here is a list of your recent challenges and your guesses
+.no-padding.bg-tertiary
+  .container-fluid
+    .row.no-gutter
+      - @challenges.each do |challenge|
+        = render "/challenges/challenge_image", {challenge: challenge, image: Image.find(challenge.image_id), link: challenge}

@@ -1,5 +1,5 @@
-.imgWrap
-  = image_tag image.large_url
-  .imgContainer
-    .imgDescription
-      = render '/challenges/challenge_answers', {challenge: challenge, image: image}
+.col-lg-4.col-sm-6
+  .portfolio-box
+    %img{:alt => image.title, :class => "/startbootstrap/img-responsive", :src => image.large_url}
+      .portfolio-box-caption
+        = render '/challenges/challenge_answers', {challenge: challenge, image: image}

@@ -1,4 +1,5 @@
-%section#new_challenge
+=render 'title', {image: @image}
+.section-secondary.bg-tertiary
   .container
     .row
       .col-md-8
@@ -7,7 +8,7 @@
       .col-md-4
         = form_for @challenge do |f|
           .row
-            %h3= @image.title
+            %h3 Your Guesses
           .row
             .col-md-3
               %b Focal Length

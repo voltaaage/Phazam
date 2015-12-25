@@ -58,6 +58,14 @@ p {
     background-color: #475A84;
 }
 
+.bg-secondary {
+    background-color: #6E7C9E;
+}
+
+.bg-tertiary {
+    background-color: #9FA8BD;
+}
+
 .bg-dark {
     color: #fff;
     background-color: #222;
@@ -69,6 +77,14 @@ p {
 
 section {
     padding: 100px 0;
+}
+
+.section-heading {
+    margin-top: 0;
+}
+
+.section-secondary {
+    padding: 30px 0;
 }
 
 .page-begin {
@@ -194,6 +210,11 @@ header {
     -o-background-size: cover;
 }
 
+#header-challenge {
+    background-image: url(../img/header2.jpg);
+    opacity: .8;
+}
+
 header .header-content {
     position: relative;
     width: 100%;
@@ -214,7 +235,7 @@ header .header-content .header-content-inner hr {
 
 header .header-content .header-content-inner p {
     margin-bottom: 50px;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 300;
     color: rgba(255,255,255,.7);
 }
@@ -245,10 +266,6 @@ header .header-content .header-content-inner p {
         max-width: 80%;
         font-size: 18px;
     }
-}
-
-.section-heading {
-    margin-top: 0;
 }
 
 .service-box {
