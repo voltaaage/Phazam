@@ -24,6 +24,7 @@ The 'View Photos' section is a gallery of images pulled in through the Flickr AP
 
 ![View Photos Section](/public/view_photos.png "View Photos")
 
+Hover to Discover!
 ![View Photos Section (Hover))](/public/view_photos_hover.png "View Photos (Hover)")
 
 ### Challenge
