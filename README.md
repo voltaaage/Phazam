@@ -6,13 +6,13 @@ A Ruby on Rails Web Application that allows photographers to test their eye for 
 
 With photography becoming increasingly popular, we look to our favorite artists and photos for motivation to continue improving our skills. By looking at the settings used to create a shot, we as photographers can gain insight as to how we can go about re-creating our favorite images.
 
-By evaluating focal length, we can assess how far the photographer was from their subject.
+- By evaluating focal length, we can assess how far the photographer was from their subject.
 
-Shutter speed can provide some insight on whether the subject was moving fast or if the photo was done with a long exposure.
+- Shutter speed can provide some insight on whether the subject was moving fast or if the photo was done with a long exposure.
 
-Aperture influences the depth of field in the photo. We can learn to adjust aperture based on what we want in focus.
+- Aperture influences the depth of field in the photo. We can learn to adjust aperture based on what we want in focus.
 
-ISO speed can tell us how much light was available and how sensitive the sensor needed to be.
+- ISO speed can tell us how much light was available and how sensitive the sensor needed to be.
 
 The combination of these settings help photographers understand the way they work together to create a fantastic photo. My hope in creating this web application is to help others develop their photographic eye and continue creating fantastic photos.
 
@@ -51,4 +51,7 @@ These images are then stored into the database to reduce API calls and retrieval
 
 ## Contact
 
-  Drop me a line if you're interested in talking about this project. 
+  Drop me a line if you're interested in talking about this project.
+
+  [LinkedIn](http://linkedin.com/in/fongfan)
+  [Twitter](https://twitter.com/fongvoltfan)
