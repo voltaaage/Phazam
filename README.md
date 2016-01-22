@@ -22,9 +22,15 @@ The combination of these settings help photographers understand the way they wor
 
 The 'View Photos' section is a gallery of images pulled in through the Flickr API. Hover over any photo to view its EXIF data: focal length, exposure, aperture, and ISO speed. Use this as a primer to help you start seeing these photos from a technical perspective.
 
+![View Photos Section](/public/view_photos.png "View Photos")
+
+![View Photos Section (Hover))](/public/view_photos_hover.png "View Photos (Hover)")
+
 ### Challenge
 
 The Challenge section is where you test your skills! Users will be presented with one image and four options for each of the attributes.
+
+![Challenge Section](/public/challenge.png "Challenge")
 
 ### User (Statistics + Past Challenges)
 
