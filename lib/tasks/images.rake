@@ -6,6 +6,6 @@ namespace :images do
 
   desc "Imports images from Flickr's Interesting Photos stream"
   task import_images: :environment do
-    Image.flickr_images_from_today(70)
+    Image.flickr_images_from_today(50)
   end
 end
