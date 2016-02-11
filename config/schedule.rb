@@ -20,7 +20,7 @@
 # Learn more: http://github.com/javan/whenever
 
 ## Load images from Flickr every morning
-every 1.day, at: '12:01 am' do
+every 4.hours do
   rake "images:import_images"
 end
 
