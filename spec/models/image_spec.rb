@@ -1,49 +1,19 @@
 require 'rails_helper'
 
 describe Images do
-  describe '#self.flickr_images_from_today' do
-    it 'returns an array of images' do
-      images = Image.flickr_images_from_today(25)
-      expect(images).to be_an_instance_of(Array)
-      expect(images.first).to be_an_instance_of(Image)
-      expect(images.last).to be_an_instance_of(Image)
+
+  describe '#self.load_images' do
+    it 'creates a new image in the DB' do
+      expect{Image.load_images(1)}.to change{Image.all.count}.by(1)
     end
 
-    it 'does include images created after midnight' do
-      image = @image = Image.create(
-        focal_length: "35mm",
-        exposure: "0.01 sec",
-        aperture: "f/2.8",
-        iso_speed: "300",
-        created_at: Time.now.midnight + 1.hour
-      )
+    it 'does not create a new image when it already exists' do
+      Image.load_images(1)
 
-      expect(Image.flickr_images_from_today(10)).to eq([image])
+      expect{Image.load_images(1)}.to change{Image.all.count}.by(0)
     end
 
-    it 'does not include images created before midnight' do
-      image = Image.create(created_at: Time.now.midnight - 1.hour)
-
-      expect(Image.flickr_images_from_today(3)).not_to include(image)
-    end
-
-    it 'only includes images where all exif data is available from the API' do
-      expect(Image.flickr_images_from_today(3).select!{|x| x.all_data_available == false}.length).to eq(0)
-    end
-
-    it 'only includes images where all exif data is available from the database' do
-      image1 = Image.create(created_at: Time.now.midnight + 1.hour)
-      image2 = @image = Image.create(
-        focal_length: "35mm",
-        exposure: "0.01 sec",
-        aperture: "f/2.8",
-        iso_speed: "300",
-        created_at: Time.now.midnight + 1.hour
-      )
-
-      expect(Image.flickr_images_from_today(3).select!{|x| x.all_data_available == false}.length).to eq(0)
-    end
-  end
+  end # end load_images
 
   describe 'all_data_available' do
     it 'returns true when all attributes are available' do
@@ -63,5 +33,6 @@ describe Images do
 
       expect(image.all_data_available).to be_falsy
     end
-  end
-end
+  end # end all_data_available
+
+end # end Images

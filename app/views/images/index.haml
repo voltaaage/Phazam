@@ -1,11 +1,36 @@
 %section#images_title.bg-primary
   .container
-    .col-lg-8.col-lg-offset-2.text-center
-      %h2.section-heading Interesting Photos of Today (from Flickr)
+    .col-md-10.col-md-offset-1.text-center
+      %h2.section-heading View Photos w/ EXIF Data (From Flickr)
       %hr.light
-        %p.text-faded Use these fresh new photos from Flickr to practice before your challenge! Hover over an image to view the EXIF data for that photo.
+        .text-faded
+          %p With photography becoming increasingly popular, we look to our favorite artists and photos for motivation to continue improving our skills. By looking at the settings used to create a shot, we as photographers can gain insight as to how we can go about re-creating our favorite images.
+          %ul
+            %li
+              Evaluating 
+              %b focal length
+              , we can assess how far the photographer was from their subject.
+            %li
+              %b Shutter speed
+              can provide some insight on whether the subject was moving fast or if the photo was done with a long exposure.
+            %li
+              %b Aperture
+              influences the depth of field in the photo. We can learn to adjust aperture based on what we want in focus.
+            %li
+              %b ISO speed
+              can tell us how much light was available and tells us how sensitive the sensor needed to be.
+            %li The combination of these settings help photographers understand the way they work together to create a fantastic photo. My hope in creating this web application is to help others develop their photographic eye and continue creating fantastic photos.
+          %p Just hover over an image to view its attributes and see what you can learn!
 %section#portfolio.no-padding
   .container-fluid
     .row.no-gutter
       - @images.each do |image|
         = render 'image', {image: image, link: image}
+
+
+
+By evaluating focal length, we can assess how far the photographer was from their subject.
+Shutter speed can provide some insight on whether the subject was moving fast or if the photo was done with a long exposure.
+Aperture influences the depth of field in the photo. We can learn to adjust aperture based on what we want in focus.
+ISO speed can tell us how much light was available and tells us how sensitive the sensor needed to be.
+The combination of these settings help photographers understand the way they work together to create a fantastic photo. My hope in creating this web application is to help others develop their photographic eye and continue creating fantastic photos.

@@ -1,38 +1,29 @@
 class Image < ActiveRecord::Base
   has_many :challenges
 
-  # Helps prevent multiple api calls in the same day
-  def self.flickr_images_from_today(per_page)
-    images = Image.where({ created_at: (Time.now.midnight)..(Time.now.midnight + 1.day)}).to_a.select{|x| x.all_data_available}
-    if images.length == 0
-      images = Image.create_image_array_from_interesting_photos(per_page)
-    end
-    images
-  end
-
   def all_data_available
     focal_length != nil && exposure != nil && aperture != nil && iso_speed != nil
   end
 
+  def self.load_images(per_page)
+    flickr_interesting_images_api_call(per_page)
+  end
+
   private
 
-  def self.create_image_array_from_interesting_photos(per_page)
-    images = []
+  def self.flickr_interesting_images_api_call(per_page)
     flickr.interestingness.getList(api_key: ENV['FLICKR_KEY'], per_page: per_page).each do |photo|
-      image = Image.find{ |x| x.photo_id == photo.id}
-      image = process_image(ENV['FLICKR_KEY'],photo) if image == nil
-      images << image if image.all_data_available
+      create_image(ENV['FLICKR_KEY'],photo)
     end
-    images
   end
 
-  def self.process_image(api_key,photo)
+  def self.create_image(api_key,photo)
+    retrieve_photo_info(api_key,photo.id) unless Image.exists?(photo_id: photo.id)
+  end
+
+  def self.retrieve_photo_info(api_key,photo_id)
     image = Image.new
-    process_flickr_info(api_key,photo.id,image)
-    image
-  end
-
-  def self.process_flickr_info(api_key,photo_id,image)
+    # need separate API calls for general info and exif data
     general_info(api_key,photo_id,image)
     exif_data(api_key,photo_id,image)
   end
@@ -47,6 +38,7 @@ class Image < ActiveRecord::Base
     )
   end
 
+  # Custom method to parse Flicker's JSON response
   def self.exif_data(api_key,photo_id,image)
     begin
       exif = flickr.photos.getExif(api_key: api_key, photo_id: photo_id).exif

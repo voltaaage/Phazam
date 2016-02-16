@@ -1,10 +1,14 @@
 class ImagesController < ApplicationController
   def index
-    @images = Image.flickr_images_from_today(72)
+    @images = Image.select{|x| x.all_data_available}.sample(30)
   end
 
   def show
     @image = Image.find(params[:id])
+  end
+
+  def load
+    Image.flickr_images_from_today(72)
   end
 
   private

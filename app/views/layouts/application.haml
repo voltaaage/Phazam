@@ -49,6 +49,7 @@
             %li= link_to "View Photos",images_path
             - if current_user
               %li= link_to "Start A New Challenge", new_challenge_path
+              /%li= link_to "Load Photos", controller: :image, action: :load
           %ul.nav.navbar-nav.navbar-right
             - if current_page?('/')
               %li
